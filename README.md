@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# X-MEGA Website
 
-## Getting Started
+Marketing website for **XMEGA** — Ideas. Design. Technology.
+Built with Next.js 16 (App Router), React 19, Tailwind CSS v4 and lucide-react.
 
-First, run the development server:
+## Pages
+
+Home · About · Services · Projects · Freelancing · Internships · Student Projects · For Local Business · Careers · Contact
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev     # http://localhost:3000
+npm run build   # production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Path | What |
+|---|---|
+| `app/` | One folder per page |
+| `components/` | Shared sections and UI (buttons, forms, hero, FAQ…) |
+| `lib/content.ts`, `lib/pages.ts` | Page copy and data |
+| `lib/site.ts` | Contact details, navigation and form endpoint |
+| `app/globals.css` | Colour tokens and theme utilities |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Before launch
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Replace placeholder contact details in `lib/site.ts`.
+- Set `NEXT_PUBLIC_FORM_ENDPOINT` (e.g. Formspree) so forms submit directly; otherwise they open a pre-filled email.
+- Confirm stats, project examples and program details marked as placeholders.
