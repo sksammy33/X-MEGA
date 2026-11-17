@@ -14,9 +14,9 @@ export function ProjectGallery() {
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="flex flex-col gap-5">
             <SectionLabel tone="light">Project filters</SectionLabel>
-            <h2 className="text-4xl font-bold tracking-tight text-ink md:text-[46px]">Explore Our Work</h2>
+            <h2 className="text-4xl font-bold tracking-tight text-heading md:text-[46px]">Explore Our Work</h2>
           </div>
-          <p className="text-sm text-slate">
+          <p className="text-sm text-ink-muted">
             {String(visible.length).padStart(2, "0")} illustrative concept{visible.length === 1 ? "" : "s"}
           </p>
         </div>
@@ -31,7 +31,7 @@ export function ProjectGallery() {
                 aria-selected={on}
                 onClick={() => setFilter(f)}
                 className={`rounded-full px-5 py-2.5 text-[13px] transition-all ${
-                  on ? "bg-primary glow-primary font-semibold text-white" : "border border-ink/10 bg-paper text-slate hover:border-electric/40 hover:text-ink"
+                  on ? "bg-primary glow-primary font-semibold text-white" : "border border-ink/10 bg-surface text-ink-muted hover:border-brand-bright/40 hover:text-ink"
                 }`}
               >
                 {f}
@@ -41,10 +41,10 @@ export function ProjectGallery() {
         </div>
 
         <div className="mt-16 flex items-end justify-between gap-6 border-b border-ink/10 pb-6">
-          <h3 className="text-3xl font-semibold text-ink md:text-[38px]">Selected Projects</h3>
-          <span className="hidden text-[11px] uppercase tracking-[0.16em] text-slate sm:block">Concept collection</span>
+          <h3 className="text-3xl font-semibold text-heading md:text-[38px]">Selected Projects</h3>
+          <span className="hidden text-[11px] uppercase tracking-[0.16em] text-ink-muted sm:block">Concept collection</span>
         </div>
-        <p className="mt-4 text-[13px] text-slate">
+        <p className="mt-4 text-[13px] text-ink-muted">
           Illustrative project concepts, not verified completed XMEGA projects. Replace with actual work before publishing.
         </p>
 
@@ -57,7 +57,7 @@ export function ProjectGallery() {
         ) : (
           <div className="card-light mt-12 flex flex-col items-center gap-5 rounded-3xl px-6 py-20 text-center">
             <p className="text-2xl font-semibold text-ink">Freelance case studies are on their way.</p>
-            <p className="max-w-md text-slate">
+            <p className="max-w-md text-ink-muted">
               We&apos;re preparing write-ups of recent freelance work. In the meantime, explore what we offer.
             </p>
             <Button href="/freelancing">Explore Freelancing</Button>

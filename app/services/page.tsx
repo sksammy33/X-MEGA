@@ -23,17 +23,17 @@ export default function ServicesPage() {
   return (
     <main>
       {/* Hero — Figma image + text split, with Politian-style overlapping card */}
-      <section className="bg-paper-soft relative overflow-hidden pb-20 pt-36 md:pt-44">
+      <section className="bg-surface-soft relative overflow-hidden pb-20 pt-36 md:pt-44">
         <Container className="relative grid items-center gap-12 lg:grid-cols-[1fr_1.05fr]">
           <div className="relative">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] sm:aspect-[5/5]">
               <Image src="/images/developers.jpg" alt="XMEGA team at work" fill priority sizes="(min-width: 1024px) 560px, 100vw" className="object-cover" />
-              <div className="absolute inset-0 bg-[linear-gradient(200deg,transparent_40%,rgb(21_41_106/0.75)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(200deg,transparent_40%,color-mix(in_oklab,var(--color-surface-dark-4)_75%,transparent)_100%)]" />
             </div>
-            <div className="card-light absolute -bottom-8 right-4 max-w-[280px] animate-float rounded-3xl p-6 shadow-[0_30px_60px_-30px_rgb(27_70_201/0.5)] sm:-right-6">
+            <div className="card-light absolute -bottom-8 right-4 max-w-[280px] animate-float rounded-3xl p-6 shadow-[0_30px_60px_-30px_color-mix(in_oklab,var(--color-brand)_50%,transparent)] sm:-right-6">
               <span className="bg-primary mb-4 block h-1 w-10 rounded-full" />
               <p className="text-xl font-semibold text-ink">Built around your goals.</p>
-              <p className="mt-2 text-sm leading-relaxed text-slate">
+              <p className="mt-2 text-sm leading-relaxed text-ink-muted">
                 Design, technology and growth. Find the right starting point for your next digital experience.
               </p>
             </div>
@@ -41,10 +41,10 @@ export default function ServicesPage() {
 
           <div className="flex flex-col items-start gap-7">
             <SectionLabel tone="light">Our services</SectionLabel>
-            <h1 className="text-balance text-5xl font-bold leading-[1.04] tracking-tight text-ink md:text-[64px]">
+            <h1 className="text-balance text-5xl font-bold leading-[1.04] tracking-tight text-heading md:text-[64px]">
               Technology Solutions for Every <span className="text-gradient-ink">Ambition.</span>
             </h1>
-            <p className="max-w-[520px] text-lg leading-relaxed text-slate">
+            <p className="max-w-[520px] text-lg leading-relaxed text-ink-muted">
               From design and development to AI and digital growth, we deliver solutions tailored to your business
               needs.
             </p>
@@ -58,7 +58,7 @@ export default function ServicesPage() {
         </Container>
 
         <Container className="relative mt-24">
-          <p className="max-w-[760px] border-l-2 border-electric pl-6 text-xl leading-relaxed text-slate md:text-2xl">
+          <p className="max-w-[760px] border-l-2 border-brand-bright pl-6 text-xl leading-relaxed text-ink-muted md:text-2xl">
             We bring design and development together to turn your ideas into useful digital products —{" "}
             <span className="text-ink">built around your needs, your users and your next stage of growth.</span>
           </p>
@@ -68,10 +68,10 @@ export default function ServicesPage() {
       {/* Atmospheric introduction with category tabs */}
       <section className="relative overflow-hidden">
         <Image src="/images/expertise.png" alt="" fill sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(7_13_34/0.9)_0%,rgb(10_20_48/0.55)_45%,rgb(10_20_48/0.9)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-surface-dark)_90%,transparent)_0%,color-mix(in_oklab,var(--color-surface-dark-2)_55%,transparent)_45%,color-mix(in_oklab,var(--color-surface-dark-2)_90%,transparent)_100%)]" />
         <Container className="relative py-24 md:py-32">
           <h2 className="text-4xl font-bold tracking-tight text-white md:text-[56px]">Explore What We Do</h2>
-          <p className="mt-5 max-w-[560px] text-lg text-soft">
+          <p className="mt-5 max-w-[560px] text-lg text-on-dark">
             Comprehensive digital services to build, launch, manage and grow your business.
           </p>
           <div className="mt-14 grid grid-cols-2 gap-3 md:grid-cols-4">
@@ -82,10 +82,10 @@ export default function ServicesPage() {
                 className="glass flex items-center justify-between rounded-2xl px-5 py-4 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:bg-white/12"
               >
                 <span>
-                  <span className="mr-2 text-sky">0{i + 1}</span>
+                  <span className="mr-2 text-accent">0{i + 1}</span>
                   {c}
                 </span>
-                <ArrowUpRight className="size-4 text-ice" />
+                <ArrowUpRight className="size-4 text-accent-soft" />
               </a>
             ))}
           </div>
@@ -106,7 +106,7 @@ export default function ServicesPage() {
             {serviceDirectory.map((s, i) => (
               <article
                 key={s.name}
-                className="group relative flex flex-col gap-5 overflow-hidden rounded-3xl border border-ink/10 bg-paper p-7 transition-all duration-500 hover:border-transparent md:p-8"
+                className="group relative flex flex-col gap-5 overflow-hidden rounded-3xl border border-ink/10 bg-surface p-7 transition-all duration-500 hover:border-transparent md:p-8"
               >
                 <Image
                   src={s.image}
@@ -115,20 +115,20 @@ export default function ServicesPage() {
                   sizes="(min-width: 768px) 600px, 100vw"
                   className="object-cover opacity-0 transition-opacity duration-700 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(160deg,rgb(7_13_34/0.88)_0%,rgb(21_41_106/0.82)_100%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-[linear-gradient(160deg,color-mix(in_oklab,var(--color-surface-dark)_88%,transparent)_0%,color-mix(in_oklab,var(--color-surface-dark-4)_82%,transparent)_100%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
                 <div className="relative flex items-start justify-between">
                   <span className="bg-primary glow-primary grid size-12 place-items-center rounded-2xl text-white">
                     <s.icon className="size-5" />
                   </span>
-                  <span className="text-xs text-slate transition-colors group-hover:text-ice">0{i + 1}</span>
+                  <span className="text-xs text-ink-muted transition-colors group-hover:text-accent-soft">0{i + 1}</span>
                 </div>
                 <div className="relative">
-                  <h3 className="text-2xl font-semibold text-ink transition-colors group-hover:text-white md:text-[26px]">{s.name}</h3>
-                  <p className="mt-2 text-[16px] leading-relaxed text-slate transition-colors group-hover:text-soft">{s.description}</p>
+                  <h3 className="text-2xl font-semibold text-heading transition-colors group-hover:text-white md:text-[26px]">{s.name}</h3>
+                  <p className="mt-2 text-[16px] leading-relaxed text-ink-muted transition-colors group-hover:text-on-dark">{s.description}</p>
                 </div>
-                <ul className="relative mt-auto flex flex-wrap gap-2 border-t border-ink/10 pt-5 transition-colors group-hover:border-ice/20">
+                <ul className="relative mt-auto flex flex-wrap gap-2 border-t border-ink/10 pt-5 transition-colors group-hover:border-accent-soft/20">
                   {s.items.map((it) => (
-                    <li key={it} className="rounded-full bg-glow px-3 py-1.5 text-xs text-royal transition-colors group-hover:bg-white/10 group-hover:text-ice">
+                    <li key={it} className="rounded-full bg-accent-faint px-3 py-1.5 text-xs text-brand transition-colors group-hover:bg-white/10 group-hover:text-accent-soft">
                       {it}
                     </li>
                   ))}
@@ -140,7 +140,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Why choose — pillars + Politian donation-style stat card over image */}
-      <section className="relative overflow-hidden bg-base py-24 md:py-32">
+      <section className="relative overflow-hidden bg-surface-dark py-24 md:py-32">
         <Glow className="-left-40 top-1/2 size-[520px]" />
         <Container className="relative">
           <SectionIntro
@@ -155,41 +155,41 @@ export default function ServicesPage() {
           />
           <div className="mt-14 grid gap-4 md:grid-cols-3">
             {pillars.map(({ title, description, icon: Icon }) => (
-              <div key={title} className="surface rounded-3xl p-7">
-                <span className="grid size-11 place-items-center rounded-2xl bg-electric/15 text-ice">
+              <div key={title} className="card-dark rounded-3xl p-7">
+                <span className="grid size-11 place-items-center rounded-2xl bg-brand-bright/15 text-accent-soft">
                   <Icon className="size-5" />
                 </span>
                 <h3 className="mt-6 text-xl font-semibold text-white">{title}</h3>
-                <p className="mt-2 text-[15px] leading-relaxed text-soft">{description}</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-on-dark">{description}</p>
               </div>
             ))}
           </div>
 
           <div className="mt-6 grid gap-6 lg:grid-cols-[1.1fr_1fr]">
-            <div className="relative min-h-[420px] overflow-hidden rounded-3xl ring-1 ring-ice/10">
+            <div className="relative min-h-[420px] overflow-hidden rounded-3xl ring-1 ring-accent-soft/10">
               <Image src="/images/meeting.jpg" alt="Project planning session" fill sizes="(min-width: 1024px) 640px, 100vw" className="object-cover" />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_30%,rgb(7_13_34/0.85)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_30%,color-mix(in_oklab,var(--color-surface-dark)_85%,transparent)_100%)]" />
               {/* Placeholder figures — replace with real project data */}
               <div className="glass absolute inset-x-5 bottom-5 rounded-2xl p-6">
                 <p className="text-sm font-semibold text-white">Project Overview</p>
                 <p className="mt-3 flex items-baseline gap-3">
                   <span className="text-5xl font-bold text-white">12</span>
-                  <span className="text-sm text-soft">active projects this quarter</span>
+                  <span className="text-sm text-on-dark">active projects this quarter</span>
                 </p>
                 <div className="mt-5 flex h-2 overflow-hidden rounded-full bg-white/10">
                   <span className="bg-primary w-[60%]" />
-                  <span className="w-[25%] bg-ice/70" />
-                  <span className="w-[15%] bg-copper/80" />
+                  <span className="w-[25%] bg-accent-soft/70" />
+                  <span className="w-[15%] bg-highlight/80" />
                 </div>
-                <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-xs text-soft">
-                  <span><span className="text-sky">●</span> Building 60%</span>
-                  <span><span className="text-ice">●</span> Design 25%</span>
-                  <span><span className="text-copper">●</span> Discovery 15%</span>
+                <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-xs text-on-dark">
+                  <span><span className="text-accent">●</span> Building 60%</span>
+                  <span><span className="text-accent-soft">●</span> Design 25%</span>
+                  <span><span className="text-highlight">●</span> Discovery 15%</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-signature flex flex-col justify-between gap-10 rounded-3xl p-8 ring-1 ring-ice/15 md:p-10">
+            <div className="bg-signature flex flex-col justify-between gap-10 rounded-3xl p-8 ring-1 ring-accent-soft/15 md:p-10">
               <div>
                 <h3 className="text-3xl font-semibold text-white">Results you can act on.</h3>
                 <p className="mt-4 text-[17px] leading-relaxed text-white/80">
@@ -219,7 +219,7 @@ export default function ServicesPage() {
       />
 
       {/* Engagement options — Connect pricing-card layout */}
-      <section className="bg-paper-soft py-24 md:py-32">
+      <section className="bg-surface-soft py-24 md:py-32">
         <Container>
           <SectionIntro
             align="center"
@@ -242,8 +242,8 @@ export default function ServicesPage() {
                     Most complete
                   </span>
                 )}
-                <h3 className={`text-2xl font-semibold md:text-[28px] ${o.featured ? "text-white" : "text-ink"}`}>{o.name}</h3>
-                <p className={`text-[17px] leading-relaxed ${o.featured ? "text-white/80" : "text-slate"}`}>
+                <h3 className={`text-2xl font-semibold md:text-[28px] ${o.featured ? "text-white" : "text-heading"}`}>{o.name}</h3>
+                <p className={`text-[17px] leading-relaxed ${o.featured ? "text-white/80" : "text-ink-muted"}`}>
                   {o.description}
                 </p>
                 <ul className={`flex flex-col gap-3 border-t pt-6 ${o.featured ? "border-white/15" : "border-ink/10"}`}>

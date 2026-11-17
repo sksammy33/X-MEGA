@@ -28,7 +28,7 @@ export function Work({
           ))}
         </div>
 
-        <p className="mt-12 text-xs text-slate">
+        <p className="mt-12 text-xs text-ink-muted">
           Illustrative concept projects, not verified client work. Shown to explore possible digital experiences.
         </p>
       </Container>

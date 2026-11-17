@@ -28,7 +28,7 @@ export function FormSection({
   note?: string;
 }) {
   return (
-    <section id={id} className="bg-paper-soft scroll-mt-24 py-24 md:py-32">
+    <section id={id} className="bg-surface-soft scroll-mt-24 py-24 md:py-32">
       <Container className="grid gap-12 lg:grid-cols-[400px_1fr] lg:gap-16">
         <div className="flex flex-col gap-8 lg:sticky lg:top-28 lg:self-start">
           <SectionIntro tone="light" label={label} title={title} description={description} />
@@ -46,7 +46,7 @@ export function FormSection({
           )}
           {aside}
         </div>
-        <div className="card-light rounded-[28px] p-6 shadow-[0_40px_80px_-50px_rgb(27_70_201/0.5)] md:p-10">
+        <div className="card-light rounded-[28px] p-6 shadow-[0_40px_80px_-50px_color-mix(in_oklab,var(--color-brand)_50%,transparent)] md:p-10">
           <EnquiryForm fields={fields} subject={subject} submitLabel={submitLabel} note={note} />
         </div>
       </Container>

@@ -25,8 +25,8 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6">
       <nav
-        className={`mx-auto flex max-w-[1200px] items-center justify-between rounded-full border border-ice/10 bg-base/85 px-5 py-3 backdrop-blur-xl transition-shadow duration-500 md:px-6 ${
-          scrolled || open ? "shadow-[0_20px_50px_-20px_rgb(3_8_25/0.6)]" : ""
+        className={`mx-auto flex max-w-[1200px] items-center justify-between rounded-full border border-accent-soft/10 bg-surface-dark/85 px-5 py-3 backdrop-blur-xl transition-shadow duration-500 md:px-6 ${
+          scrolled || open ? "shadow-[0_20px_50px_-20px_color-mix(in_oklab,var(--color-surface-dark)_60%,transparent)]" : ""
         }`}
       >
         <Link href="/" className="text-2xl font-extrabold tracking-tight text-white">
@@ -50,17 +50,17 @@ export function Navbar() {
                   {item.children.some((c) => c.href === pathname) && underline}
                 </button>
                 <div className="invisible absolute left-1/2 top-full w-72 -translate-x-1/2 pt-5 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-                  <ul className="rounded-2xl border border-ice/10 bg-base/95 p-2 shadow-[0_30px_60px_-20px_rgb(3_8_25/0.8)] backdrop-blur-xl">
+                  <ul className="rounded-2xl border border-accent-soft/10 bg-surface-dark/95 p-2 shadow-[0_30px_60px_-20px_color-mix(in_oklab,var(--color-surface-dark)_80%,transparent)] backdrop-blur-xl">
                     {item.children.map((c) => (
                       <li key={c.href}>
                         <Link
                           href={c.href}
-                          className={`block rounded-xl px-4 py-3 transition-colors hover:bg-electric/10 ${
-                            pathname === c.href ? "bg-electric/10" : ""
+                          className={`block rounded-xl px-4 py-3 transition-colors hover:bg-brand-bright/10 ${
+                            pathname === c.href ? "bg-brand-bright/10" : ""
                           }`}
                         >
                           <span className="block text-sm font-semibold text-white">{c.label}</span>
-                          <span className="block text-xs text-soft">{c.description}</span>
+                          <span className="block text-xs text-on-dark">{c.description}</span>
                         </Link>
                       </li>
                     ))}
@@ -74,7 +74,7 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           <Link
             href="/contact"
-            className="bg-primary glow-primary hidden items-center gap-1.5 rounded-full px-5 py-2.5 text-xs font-semibold text-white transition hover:brightness-110 sm:inline-flex"
+            className="btn-primary glow-primary hidden items-center gap-1.5 rounded-full px-5 py-2.5 text-xs font-semibold text-white transition sm:inline-flex"
           >
             Let&apos;s Talk <ArrowUpRight className="size-3.5" />
           </Link>
@@ -90,7 +90,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="mx-auto mt-2 max-h-[calc(100vh-6rem)] max-w-[1200px] overflow-y-auto rounded-3xl border border-ice/10 bg-base/95 p-6 backdrop-blur-xl xl:hidden">
+        <div className="mx-auto mt-2 max-h-[calc(100vh-6rem)] max-w-[1200px] overflow-y-auto rounded-3xl border border-accent-soft/10 bg-surface-dark/95 p-6 backdrop-blur-xl xl:hidden">
           <ul className="flex flex-col gap-1">
             {mainNav
               .flatMap((item) => ("href" in item ? [item] : item.children))
@@ -100,7 +100,7 @@ export function Navbar() {
                     href={l.href}
                     onClick={() => setOpen(false)}
                     className={`block rounded-xl px-3 py-3 text-lg hover:bg-white/5 hover:text-white ${
-                      pathname === l.href ? "bg-electric/10 text-white" : "text-white/80"
+                      pathname === l.href ? "bg-brand-bright/10 text-white" : "text-white/80"
                     }`}
                   >
                     {l.label}

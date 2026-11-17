@@ -50,9 +50,9 @@ export default function CareersPage() {
           <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-[230px_230px]">
             <article className="group relative min-h-[300px] overflow-hidden rounded-3xl md:col-span-2 lg:row-span-2">
               <Image src="/images/career-team.jpg" alt="Team members collaborating" fill sizes="(min-width: 1024px) 580px, 100vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,rgb(10_20_48/0.92)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_40%,color-mix(in_oklab,var(--color-surface-dark-2)_92%,transparent)_100%)]" />
               <div className="absolute bottom-0 p-8 text-white">
-                <first.icon className="size-6 text-ice" />
+                <first.icon className="size-6 text-accent-soft" />
                 <h3 className="mt-4 text-3xl font-bold">{first.title}</h3>
                 <p className="mt-2 max-w-sm text-white/80">{first.description}</p>
               </div>
@@ -61,13 +61,13 @@ export default function CareersPage() {
               <article
                 key={title}
                 className={`flex flex-col justify-between rounded-3xl p-7 ${
-                  i === 2 ? "bg-signature text-white md:col-span-2" : "border border-ink/10 bg-paper"
+                  i === 2 ? "bg-signature text-white md:col-span-2" : "border border-ink/10 bg-surface"
                 }`}
               >
-                <Icon className={`size-6 ${i === 2 ? "text-ice" : "text-electric"}`} />
+                <Icon className={`size-6 ${i === 2 ? "text-accent-soft" : "text-brand-bright"}`} />
                 <div>
-                  <h3 className={`text-xl font-semibold ${i === 2 ? "text-white" : "text-ink"}`}>{title}</h3>
-                  <p className={`mt-2 text-[15px] ${i === 2 ? "text-white/80" : "text-slate"}`}>{description}</p>
+                  <h3 className={`text-xl font-semibold ${i === 2 ? "text-white" : "text-heading"}`}>{title}</h3>
+                  <p className={`mt-2 text-[15px] ${i === 2 ? "text-white/80" : "text-ink-muted"}`}>{description}</p>
                 </div>
               </article>
             ))}
@@ -76,14 +76,14 @@ export default function CareersPage() {
       </section>
 
       {/* 03 + 04 — Open positions and teams */}
-      <section id="positions" className="bg-paper-soft scroll-mt-24 py-24 md:py-32">
+      <section id="positions" className="bg-surface-soft scroll-mt-24 py-24 md:py-32">
         <Container>
           <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <SectionIntro tone="light" label="Open positions" title="Current Opportunities." className="max-w-[560px]" />
             <div className="flex flex-wrap gap-2">
               {careerTeams.map(({ name, icon: Icon }) => (
                 <span key={name} className="flex items-center gap-2 rounded-full border border-ink/10 bg-white px-4 py-2 text-sm text-ink">
-                  <Icon className="size-4 text-electric" />
+                  <Icon className="size-4 text-brand-bright" />
                   {name}
                 </span>
               ))}
@@ -95,9 +95,9 @@ export default function CareersPage() {
               {openPositions.map((p) => (
                 <li key={p.role} className="card-light grid gap-6 rounded-3xl p-7 md:grid-cols-[1fr_1.4fr_auto] md:items-start">
                   <div>
-                    <p className="text-xs uppercase tracking-wider text-royal">{p.team}</p>
-                    <h3 className="mt-2 text-2xl font-semibold text-ink">{p.role}</h3>
-                    <p className="mt-2 text-sm text-slate">
+                    <p className="text-xs uppercase tracking-wider text-brand">{p.team}</p>
+                    <h3 className="mt-2 text-2xl font-semibold text-heading">{p.role}</h3>
+                    <p className="mt-2 text-sm text-ink-muted">
                       {p.experience} · {p.mode}
                     </p>
                   </div>
@@ -110,8 +110,8 @@ export default function CareersPage() {
                         <p className="text-sm font-semibold text-ink">{title}</p>
                         <ul className="mt-2 flex flex-col gap-1.5">
                           {(items as string[]).map((it) => (
-                            <li key={it} className="flex gap-2 text-sm text-slate">
-                              <Check className="mt-0.5 size-3.5 shrink-0 text-electric" />
+                            <li key={it} className="flex gap-2 text-sm text-ink-muted">
+                              <Check className="mt-0.5 size-3.5 shrink-0 text-brand-bright" />
                               {it}
                             </li>
                           ))}
@@ -129,8 +129,8 @@ export default function CareersPage() {
                 <Briefcase className="size-6" />
               </span>
               <div>
-                <h3 className="text-2xl font-semibold text-ink">No open positions right now.</h3>
-                <p className="mt-2 max-w-xl text-slate">
+                <h3 className="text-2xl font-semibold text-heading">No open positions right now.</h3>
+                <p className="mt-2 max-w-xl text-ink-muted">
                   We&apos;re not actively hiring for a specific role at the moment. You&apos;re welcome to share your
                   resume — we&apos;ll reach out when a relevant opportunity opens.
                 </p>

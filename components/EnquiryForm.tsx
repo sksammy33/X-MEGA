@@ -15,7 +15,7 @@ export type Field = {
 };
 
 const inputClass =
-  "w-full rounded-xl border border-ink/10 bg-paper px-4 py-3 text-[15px] text-ink placeholder:text-slate/60 outline-none transition focus:border-electric focus:bg-white focus:ring-4 focus:ring-electric/10";
+  "w-full rounded-xl border border-ink/10 bg-surface px-4 py-3 text-[15px] text-ink placeholder:text-ink-muted/60 outline-none transition focus:border-brand-bright focus:bg-white focus:ring-4 focus:ring-brand-bright/10";
 
 /**
  * Posts JSON to `site.formEndpoint` when configured; otherwise opens a pre-filled email
@@ -61,14 +61,14 @@ export function EnquiryForm({
   if (status === "sent") {
     return (
       <div className="flex flex-col items-center gap-4 py-16 text-center">
-        <CheckCircle2 className="size-12 text-electric" />
+        <CheckCircle2 className="size-12 text-brand-bright" />
         <p className="text-2xl font-semibold text-ink">Thank you — we&apos;ve got your details.</p>
-        <p className="max-w-sm text-slate">
+        <p className="max-w-sm text-ink-muted">
           {site.formEndpoint
             ? "Your enquiry has been sent to the XMEGA team."
             : "Your email app should open with everything filled in — just press send."}
         </p>
-        <button onClick={() => setStatus("idle")} className="text-sm font-semibold text-royal hover:underline">
+        <button onClick={() => setStatus("idle")} className="text-sm font-semibold text-brand hover:underline">
           Send another enquiry
         </button>
       </div>
@@ -84,7 +84,7 @@ export function EnquiryForm({
           <label key={f.name} htmlFor={id} className={`flex flex-col gap-2 ${span}`}>
             <span className="text-sm font-medium text-ink">
               {f.label}
-              {f.required && <span className="text-electric"> *</span>}
+              {f.required && <span className="text-brand-bright"> *</span>}
             </span>
             {f.type === "textarea" ? (
               <textarea id={id} name={f.name} required={f.required} placeholder={f.placeholder} rows={5} className={inputClass} />
@@ -105,11 +105,11 @@ export function EnquiryForm({
       })}
 
       <div className="flex flex-col gap-4 pt-2 sm:col-span-2 sm:flex-row sm:items-center sm:justify-between">
-        {note && <p className="text-xs text-slate">{note}</p>}
+        {note && <p className="text-xs text-ink-muted">{note}</p>}
         <button
           type="submit"
           disabled={status === "sending"}
-          className="bg-primary glow-primary group inline-flex shrink-0 items-center justify-center gap-3 rounded-full px-7 py-4 text-sm font-semibold text-white transition hover:brightness-110 disabled:opacity-70"
+          className="btn-primary glow-primary group inline-flex shrink-0 items-center justify-center gap-3 rounded-full px-7 py-4 text-sm font-semibold text-white transition disabled:opacity-70"
         >
           {status === "sending" ? <Loader2 className="size-4 animate-spin" /> : null}
           {submitLabel}
@@ -117,7 +117,7 @@ export function EnquiryForm({
         </button>
       </div>
       {status === "error" && (
-        <p className="text-sm text-red-600 sm:col-span-2">
+        <p className="text-sm text-danger sm:col-span-2">
           Something went wrong. Please try again or email {site.email.value}.
         </p>
       )}

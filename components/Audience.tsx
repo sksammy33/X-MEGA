@@ -8,7 +8,7 @@ export function Audience() {
   const [startups, local, students, creators] = audiences;
 
   return (
-    <section className="bg-paper py-24 md:py-32">
+    <section className="bg-surface py-24 md:py-32">
       <Container>
         <SectionIntro
           label="Who we work with"
@@ -25,7 +25,7 @@ export function Audience() {
               <startups.icon className="size-6" />
             </span>
             <div>
-              <p className="text-xs uppercase tracking-[0.14em] text-ice">Most common starting point</p>
+              <p className="text-xs uppercase tracking-[0.14em] text-accent-soft">Most common starting point</p>
               <h3 className="mt-3 text-3xl font-bold tracking-tight md:text-4xl">{startups.name}</h3>
               <p className="mt-3 max-w-sm text-[17px] text-white/80">{startups.description}</p>
             </div>
@@ -40,14 +40,14 @@ export function Audience() {
               sizes="(min-width: 1024px) 560px, 100vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(7_13_34/0.92)_0%,rgb(21_41_106/0.55)_65%,rgb(47_107_255/0.15)_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,color-mix(in_oklab,var(--color-surface-dark)_92%,transparent)_0%,color-mix(in_oklab,var(--color-surface-dark-4)_55%,transparent)_65%,color-mix(in_oklab,var(--color-brand-bright)_15%,transparent)_100%)]" />
             <div className="relative flex h-full flex-col justify-between p-7 text-white">
               <span className="glass grid size-11 place-items-center rounded-2xl">
                 <students.icon className="size-5" />
               </span>
               <div>
                 <h3 className="text-2xl font-semibold">{students.name}</h3>
-                <p className="mt-1.5 text-soft">{students.description}</p>
+                <p className="mt-1.5 text-on-dark">{students.description}</p>
               </div>
             </div>
           </article>
@@ -55,17 +55,17 @@ export function Audience() {
           {[local, creators].map(({ name, description, icon: Icon }) => (
             <article
               key={name}
-              className="card-light group flex min-h-[240px] flex-col justify-between rounded-3xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-28px_rgb(27_70_201/0.45)]"
+              className="card-light group flex min-h-[240px] flex-col justify-between rounded-3xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-28px_color-mix(in_oklab,var(--color-brand)_45%,transparent)]"
             >
               <div className="flex items-start justify-between">
-                <span className="grid size-11 place-items-center rounded-2xl bg-glow text-royal">
+                <span className="grid size-11 place-items-center rounded-2xl bg-accent-faint text-brand">
                   <Icon className="size-5" />
                 </span>
-                <ArrowUpRight className="size-5 text-ink/30 transition-colors group-hover:text-electric" />
+                <ArrowUpRight className="size-5 text-ink/30 transition-colors group-hover:text-brand-bright" />
               </div>
               <div>
-                <h3 className="text-[22px] font-semibold text-ink">{name}</h3>
-                <p className="mt-1.5 text-slate">{description}</p>
+                <h3 className="text-[22px] font-semibold text-heading">{name}</h3>
+                <p className="mt-1.5 text-ink-muted">{description}</p>
               </div>
             </article>
           ))}

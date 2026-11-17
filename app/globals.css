@@ -1,31 +1,139 @@
 @import "tailwindcss";
 
-/*
-  XMEGA "new era corporate" — dark, but never pure black.
-  Everything sits on deep navy; the primary is the royal → electric → sky gradient
-  sampled from the hero arc artwork, with a quiet copper accent.
-*/
-@theme {
-  --color-base: #070d22;
-  --color-night: #0a1430;
-  --color-navy: #0f1d45;
-  --color-deep: #15296a;
-  --color-royal: #1b46c9;
-  --color-electric: #2f6bff;
-  --color-sky: #5b8cff;
-  --color-ice: #a9c8ff;
-  --color-glow: #e8efff;
-  --color-copper: #d39a6c;
-  --color-soft: #b3bfdc;
-  --color-muted: #7d8ab0;
-  /* light sections */
-  --color-paper: #f2f4f8;
-  --color-mist: #e6eaf2;
-  --color-ink: #0b1430;
-  --color-slate: #5b6275;
+/* ==========================================================================
+   XMEGA DESIGN SYSTEM
+   --------------------------------------------------------------------------
+   Three layers. To rebrand, you normally only touch layer 1:
 
+   1. PRIMITIVES  — the colour palette. Every colour has the same 10 states
+                    as Figma colour styles:
+                      light, light-hover, light-active,
+                      normal, normal-hover, normal-active,
+                      dark, dark-hover, dark-active, darker
+                    Tailwind classes follow the same names, e.g.
+                    bg-purple-normal, hover:bg-purple-normal-hover.
+                    Palette direction: clean white pages, deep purple brand,
+                    electric violet + magenta accents, purple-tinted greys
+                    (references: gertin.framer.ai, fluxpay.framer.ai).
+   2. SEMANTIC    — what each colour is FOR (surface, brand, accent, text…).
+                    Components use these names, so a re-map here recolours
+                    the whole site.
+   3. EFFECTS     — gradients, glows and shadows, built from layer 1/2.
+
+   Fonts: Plus Jakarta Sans (display: headings) + Inter (body text).
+   Italics are disabled site-wide (see "Typography rules" below).
+   Icons: lucide-react only (see /design-system).
+   Live reference page: /design-system
+   ========================================================================== */
+
+/* "static" = always emit every token, even if no class uses it yet. */
+@theme static {
+  /* Drop Tailwind's default palette: only XMEGA colours can be used. */
+  --color-*: initial;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* ---------- 1. PRIMITIVES ---------- */
+
+  /* Purple: brand primary (buttons, headings, dark sections) */
+  --color-purple-light: #f6eefc;
+  --color-purple-light-hover: #efe0fa;
+  --color-purple-light-active: #dab7ff;
+  --color-purple-normal: #6f02b6;
+  --color-purple-normal-hover: #6402a4;
+  --color-purple-normal-active: #590292;
+  --color-purple-dark: #421061;
+  --color-purple-dark-hover: #310254;
+  --color-purple-dark-active: #250240;
+  --color-purple-darker: #18012b;
+
+  /* Violet: electric accent (links, icons, focus, highlights) */
+  --color-violet-light: #f5ecff;
+  --color-violet-light-hover: #ecdbff;
+  --color-violet-light-active: #d6b4fe;
+  --color-violet-normal: #870dfa;
+  --color-violet-normal-hover: #790ce1;
+  --color-violet-normal-active: #6c0ac8;
+  --color-violet-dark: #650abc;
+  --color-violet-dark-hover: #510896;
+  --color-violet-dark-active: #3d0671;
+  --color-violet-darker: #2f0558;
+
+  /* Magenta: warm glow and gradient end */
+  --color-magenta-light: #fcf0fe;
+  --color-magenta-light-hover: #ffe0fc;
+  --color-magenta-light-active: #f0b8f8;
+  --color-magenta-normal: #c72ce0;
+  --color-magenta-normal-hover: #b328ca;
+  --color-magenta-normal-active: #9f23b3;
+  --color-magenta-dark: #88179b;
+  --color-magenta-dark-hover: #771a86;
+  --color-magenta-dark-active: #5a1365;
+  --color-magenta-darker: #46104e;
+
+  /* Mauve: purple-tinted greys (text on dark, soft borders) */
+  --color-mauve-light: #f8f6fa;
+  --color-mauve-light-hover: #f1edf4;
+  --color-mauve-light-active: #e4dbec;
+  --color-mauve-normal: #bcb2c4;
+  --color-mauve-normal-hover: #a99db3;
+  --color-mauve-normal-active: #968aa1;
+  --color-mauve-dark: #766781;
+  --color-mauve-dark-hover: #5e5168;
+  --color-mauve-dark-active: #463c4e;
+  --color-mauve-darker: #2f2836;
+
+  /* Neutral: clean whites and greys */
+  --color-neutral-light: #fefcff;
+  --color-neutral-light-hover: #fafafa;
+  --color-neutral-light-active: #f7f7f7;
+  --color-neutral-normal: #ededee;
+  --color-neutral-normal-hover: #d5d5d8;
+  --color-neutral-normal-active: #b5b5b5;
+  --color-neutral-dark: #6f7483;
+  --color-neutral-dark-hover: #4f5361;
+  --color-neutral-dark-active: #2b2b2b;
+  --color-neutral-darker: #0c0c0c;
+  --color-neutral-ink: #010004; /* near-black text */
+
+  /* Status */
+  --color-danger-light: #fdeeee;
+  --color-danger: #c8323c;
+  --color-danger-dark: #9a232c;
+  --color-success-light: #ecf7f1;
+  --color-success: #2f8a5b;
+  --color-success-dark: #226844;
+
+  /* ---------- 2. SEMANTIC ---------- */
+
+  /* Light sections */
+  --color-surface: var(--color-neutral-light); /* page background */
+  --color-surface-2: var(--color-neutral-light-active); /* alternate light band */
+  --color-heading: var(--color-purple-dark-hover); /* headings on light */
+  --color-ink: var(--color-neutral-ink); /* body text on light */
+  --color-ink-muted: var(--color-neutral-dark); /* secondary text on light (AA) */
+
+  /* Dark sections (deep purple, never pure black) */
+  --color-surface-dark: var(--color-purple-darker);
+  --color-surface-dark-2: var(--color-purple-dark-active);
+  --color-surface-dark-3: var(--color-purple-dark-hover);
+  --color-surface-dark-4: var(--color-purple-dark);
+  --color-on-dark: var(--color-mauve-light-active); /* body text on dark */
+  --color-on-dark-muted: var(--color-mauve-normal); /* secondary text on dark */
+
+  /* Brand + accents */
+  --color-brand: var(--color-purple-normal); /* primary brand colour */
+  --color-brand-bright: var(--color-violet-normal); /* links, icons, focus */
+  --color-accent: var(--color-magenta-normal); /* glows, dots */
+  --color-accent-soft: var(--color-purple-light-active); /* labels/lines on dark */
+  --color-accent-faint: var(--color-purple-light-hover); /* icon chips on light */
+  --color-highlight: var(--color-magenta-normal); /* warm light leaks */
+
+  /* ---------- Typography ---------- */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
+  /* ---------- Motion ---------- */
   --animate-marquee: marquee 32s linear infinite;
   --animate-float: float 6s ease-in-out infinite;
 
@@ -39,79 +147,143 @@
   }
 }
 
+/* ---------- 3. EFFECTS ---------- */
+:root {
+  /* Primary button: vivid purple into deep purple */
+  --gradient-primary: linear-gradient(120deg, var(--color-purple-normal) 0%, var(--color-purple-dark-hover) 100%);
+  --gradient-primary-hover: linear-gradient(120deg, var(--color-violet-normal-active) 0%, var(--color-purple-dark-active) 100%);
+  --gradient-primary-active: linear-gradient(120deg, var(--color-purple-dark) 0%, var(--color-purple-darker) 100%);
+  --gradient-signature:
+    radial-gradient(85% 75% at 92% 105%,
+      color-mix(in oklab, var(--color-magenta-normal) 70%, transparent) 0%,
+      color-mix(in oklab, var(--color-violet-normal) 45%, transparent) 32%,
+      transparent 62%),
+    linear-gradient(160deg, var(--color-purple-darker) 0%, var(--color-purple-dark-hover) 45%, var(--color-purple-normal) 100%);
+  --gradient-text-dark: linear-gradient(
+    100deg,
+    var(--color-white) 0%,
+    var(--color-purple-light-active) 55%,
+    var(--color-magenta-light-active) 100%
+  );
+  --gradient-text-light: linear-gradient(
+    100deg,
+    var(--color-purple-dark-hover) 0%,
+    var(--color-purple-normal) 55%,
+    var(--color-violet-normal) 100%
+  );
+  --shadow-glow-primary:
+    0 18px 40px -16px color-mix(in oklab, var(--color-violet-normal) 55%, transparent),
+    inset 0 1px 0 rgb(255 255 255 / 0.2);
+}
+
 @layer utilities {
-  /* Primary surface — the deep-navy-to-electric glow */
-  .bg-signature {
-    background:
-      radial-gradient(85% 75% at 92% 105%, rgb(111 160 255 / 0.85) 0%, rgb(47 107 255 / 0.55) 30%, transparent 62%),
-      linear-gradient(160deg, #0a1330 0%, #0e1f55 45%, #1b46c9 100%);
+  .font-display {
+    font-family: var(--font-display);
   }
-  /* Ambient page section: navy with soft blue + copper light leaks */
+  /* Primary surface: deep purple with a magenta/violet glow */
+  .bg-signature {
+    background: var(--gradient-signature);
+  }
+  /* Ambient dark section with soft violet + magenta light leaks */
   .bg-ambient {
     background:
-      radial-gradient(60% 70% at 100% 0%, rgb(47 107 255 / 0.16) 0%, transparent 60%),
-      radial-gradient(50% 60% at 0% 100%, rgb(211 154 108 / 0.07) 0%, transparent 60%),
-      var(--color-night);
+      radial-gradient(60% 70% at 100% 0%, color-mix(in oklab, var(--color-violet-normal) 18%, transparent) 0%, transparent 60%),
+      radial-gradient(50% 60% at 0% 100%, color-mix(in oklab, var(--color-highlight) 10%, transparent) 0%, transparent 60%),
+      var(--color-surface-dark-2);
   }
-  /* Light section: cool paper with a soft blue + copper wash */
-  .bg-paper-soft {
+  /* Light section with a gentle lilac + pink wash */
+  .bg-surface-soft {
     background:
-      radial-gradient(80% 120% at 100% 0%, rgb(47 107 255 / 0.14) 0%, transparent 55%),
-      radial-gradient(60% 90% at 0% 100%, rgb(211 154 108 / 0.08) 0%, transparent 55%),
-      var(--color-paper);
+      radial-gradient(80% 120% at 100% 0%, color-mix(in oklab, var(--color-purple-light-active) 45%, transparent) 0%, transparent 55%),
+      radial-gradient(60% 90% at 0% 100%, color-mix(in oklab, var(--color-magenta-light-hover) 60%, transparent) 0%, transparent 55%),
+      var(--color-surface);
   }
   .card-light {
-    background: #fff;
-    border: 1px solid rgb(11 20 48 / 0.09);
+    background: var(--color-white);
+    border: 1px solid color-mix(in oklab, var(--color-heading) 9%, transparent);
+  }
+  .card-dark {
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--color-surface-dark-4) 35%, transparent) 0%,
+      color-mix(in oklab, var(--color-surface-dark-3) 25%, transparent) 100%
+    );
+    border: 1px solid color-mix(in oklab, var(--color-accent-soft) 10%, transparent);
   }
   .bg-primary {
-    background: linear-gradient(120deg, #5b8cff 0%, #2f6bff 45%, #1b46c9 100%);
+    background: var(--gradient-primary);
+  }
+  /* Primary button with hover/active states */
+  .btn-primary {
+    background: var(--gradient-primary);
+    color: var(--color-white);
+  }
+  .btn-primary:hover {
+    background: var(--gradient-primary-hover);
+  }
+  .btn-primary:active {
+    background: var(--gradient-primary-active);
   }
   .text-gradient {
-    background: linear-gradient(100deg, #ffffff 0%, #e8efff 30%, #a9c8ff 65%, #5b8cff 100%);
+    background: var(--gradient-text-dark);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  /* Same gradient, tuned for light sections */
   .text-gradient-ink {
-    background: linear-gradient(100deg, #0b1430 0%, #1b46c9 55%, #2f6bff 100%);
+    background: var(--gradient-text-light);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
   .glass {
     background: rgb(255 255 255 / 0.06);
-    border: 1px solid rgb(169 200 255 / 0.16);
+    border: 1px solid color-mix(in oklab, var(--color-accent-soft) 16%, transparent);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
   }
-  .surface {
-    background: linear-gradient(180deg, rgb(21 41 106 / 0.35) 0%, rgb(15 29 69 / 0.25) 100%);
-    border: 1px solid rgb(169 200 255 / 0.1);
-  }
   .glow-primary {
-    box-shadow: 0 18px 40px -16px rgb(47 107 255 / 0.75), inset 0 1px 0 rgb(255 255 255 / 0.25);
+    box-shadow: var(--shadow-glow-primary);
   }
-  /* Recolours a monochrome image into the brand blue */
+  /* Recolours an image into the brand palette */
   .tint-brand {
-    background: linear-gradient(140deg, #0e1f55 0%, #1b46c9 60%, #5b8cff 100%);
+    background: linear-gradient(140deg, var(--color-purple-dark-hover) 0%, var(--color-purple-normal) 55%, var(--color-magenta-normal) 100%);
     mix-blend-mode: color;
   }
 }
 
+/* ---------- Base ---------- */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: var(--color-paper);
+  background: var(--color-surface);
   color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Typography rules: no italics anywhere (brand rule). */
+*,
+*::before,
+*::after {
+  font-style: normal !important;
+  font-synthesis-style: none;
 }
 
 ::selection {
-  background: var(--color-electric);
-  color: #fff;
+  background: var(--color-brand-bright);
+  color: var(--color-white);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-bright);
+  outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {

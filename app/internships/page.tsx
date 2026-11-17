@@ -39,7 +39,7 @@ export default function InternshipsPage() {
       />
 
       {/* 02 + 03 — Tracks and what you'll learn */}
-      <section id="tracks" className="bg-paper-soft scroll-mt-24 py-24 md:py-32">
+      <section id="tracks" className="bg-surface-soft scroll-mt-24 py-24 md:py-32">
         <Container>
           <SectionIntro
             tone="light"
@@ -59,7 +59,7 @@ export default function InternshipsPage() {
       {/* 04 — Program structure over image (Politian stat-card treatment) */}
       <section className="relative overflow-hidden">
         <Image src="/images/internships.jpg" alt="" fill sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(7_13_34/0.95)_0%,rgb(10_20_48/0.85)_45%,rgb(21_41_106/0.55)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,color-mix(in_oklab,var(--color-surface-dark)_95%,transparent)_0%,color-mix(in_oklab,var(--color-surface-dark-2)_85%,transparent)_45%,color-mix(in_oklab,var(--color-surface-dark-4)_55%,transparent)_100%)]" />
         <Container className="relative py-24 md:py-32">
           <SectionLabel>Program structure</SectionLabel>
           <h2 className="mt-5 max-w-[620px] text-balance text-4xl font-bold leading-[1.08] tracking-tight text-white md:text-[46px]">
@@ -68,9 +68,9 @@ export default function InternshipsPage() {
           <dl className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {programStructure.map(({ label, value, icon: Icon }) => (
               <div key={label} className="glass flex min-h-[190px] flex-col justify-between rounded-3xl p-6">
-                <Icon className="size-6 text-sky" />
+                <Icon className="size-6 text-accent" />
                 <div>
-                  <dt className="text-xs uppercase tracking-[0.14em] text-ice">{label}</dt>
+                  <dt className="text-xs uppercase tracking-[0.14em] text-accent-soft">{label}</dt>
                   <dd className="mt-2 text-xl font-semibold text-white">{value}</dd>
                 </div>
               </div>
@@ -85,7 +85,7 @@ export default function InternshipsPage() {
           <div className="relative aspect-[4/3] overflow-hidden rounded-[28px]">
             <Image src="/images/students-laughing.jpg" alt="Students working together" fill sizes="(min-width: 1024px) 560px, 100vw" className="object-cover" />
             <div className="glass absolute bottom-5 left-5 flex items-center gap-3 rounded-2xl px-5 py-3 text-white">
-              <GraduationCap className="size-5 text-ice" />
+              <GraduationCap className="size-5 text-accent-soft" />
               <span className="text-sm font-medium">Students & fresh graduates</span>
             </div>
           </div>
@@ -98,7 +98,7 @@ export default function InternshipsPage() {
             />
             <ul className="flex flex-wrap gap-3">
               {eligibility.map((e) => (
-                <li key={e} className="rounded-full border border-ink/10 bg-paper px-5 py-2.5 text-[15px] font-medium text-ink">
+                <li key={e} className="rounded-full border border-ink/10 bg-surface px-5 py-2.5 text-[15px] font-medium text-ink">
                   {e}
                 </li>
               ))}

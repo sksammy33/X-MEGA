@@ -55,13 +55,13 @@ export default function StudentProjectsPage() {
               <article
                 key={name}
                 className={`flex min-h-[260px] flex-col justify-between rounded-3xl p-8 text-white md:col-span-1 lg:col-span-2 ${
-                  i === 1 ? "bg-signature" : "relative overflow-hidden bg-navy"
+                  i === 1 ? "bg-signature" : "relative overflow-hidden bg-surface-dark-3"
                 }`}
               >
                 {i === 0 && (
                   <>
                     <Image src="/images/laptop-glow.jpg" alt="" fill sizes="600px" className="object-cover opacity-50" />
-                    <div className="absolute inset-0 bg-[linear-gradient(120deg,rgb(7_13_34/0.9)_30%,rgb(21_41_106/0.4)_100%)]" />
+                    <div className="absolute inset-0 bg-[linear-gradient(120deg,color-mix(in_oklab,var(--color-surface-dark)_90%,transparent)_30%,color-mix(in_oklab,var(--color-surface-dark-4)_40%,transparent)_100%)]" />
                   </>
                 )}
                 <span className="relative grid size-12 place-items-center rounded-2xl bg-white/15 ring-1 ring-white/20">
@@ -76,14 +76,14 @@ export default function StudentProjectsPage() {
             {areas.map(({ name, description, icon: Icon }) => (
               <article
                 key={name}
-                className="group flex min-h-[200px] flex-col justify-between rounded-3xl border border-ink/10 bg-paper p-7 transition-all hover:-translate-y-1 hover:bg-white hover:shadow-[0_24px_50px_-28px_rgb(27_70_201/0.45)]"
+                className="group flex min-h-[200px] flex-col justify-between rounded-3xl border border-ink/10 bg-surface p-7 transition-all hover:-translate-y-1 hover:bg-white hover:shadow-[0_24px_50px_-28px_color-mix(in_oklab,var(--color-brand)_45%,transparent)]"
               >
-                <span className="grid size-11 place-items-center rounded-2xl bg-glow text-royal transition-all group-hover:bg-primary group-hover:text-white">
+                <span className="grid size-11 place-items-center rounded-2xl bg-accent-faint text-brand transition-all group-hover:bg-primary group-hover:text-white">
                   <Icon className="size-5" />
                 </span>
                 <div>
-                  <h3 className="text-xl font-semibold text-ink">{name}</h3>
-                  <p className="mt-1.5 text-[15px] text-slate">{description}</p>
+                  <h3 className="text-xl font-semibold text-heading">{name}</h3>
+                  <p className="mt-1.5 text-[15px] text-ink-muted">{description}</p>
                 </div>
               </article>
             ))}
@@ -92,8 +92,8 @@ export default function StudentProjectsPage() {
       </section>
 
       {/* 03 — What we help with + transparency commitment */}
-      <section className="relative overflow-hidden bg-base py-24 md:py-32">
-        <Glow className="-right-40 top-0 size-[560px] bg-royal/30" />
+      <section className="relative overflow-hidden bg-surface-dark py-24 md:py-32">
+        <Glow className="-right-40 top-0 size-[560px] bg-brand/30" />
         <Container className="relative grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <div className="flex flex-col gap-8">
             <SectionIntro
@@ -103,7 +103,7 @@ export default function StudentProjectsPage() {
             />
             <ul className="grid grid-cols-2 gap-3">
               {helpWith.map(({ name, icon: Icon }) => (
-                <li key={name} className="surface flex items-center gap-3 rounded-2xl px-4 py-4 text-[15px] font-medium text-white">
+                <li key={name} className="card-dark flex items-center gap-3 rounded-2xl px-4 py-4 text-[15px] font-medium text-white">
                   <span className="bg-primary grid size-9 shrink-0 place-items-center rounded-xl">
                     <Icon className="size-4" />
                   </span>
@@ -117,7 +117,7 @@ export default function StudentProjectsPage() {
               <Image src="/images/svc-design.jpg" alt="Planning a project on paper" fill sizes="(min-width: 1024px) 560px, 100vw" className="object-cover" />
             </div>
             <div className="bg-signature flex gap-5 rounded-3xl p-7">
-              <ShieldCheck className="size-8 shrink-0 text-ice" />
+              <ShieldCheck className="size-8 shrink-0 text-accent-soft" />
               <div>
                 <p className="text-lg font-semibold text-white">Our commitment: you learn, you own it.</p>
                 <p className="mt-2 text-[15px] leading-relaxed text-white/80">
@@ -131,7 +131,7 @@ export default function StudentProjectsPage() {
       </section>
 
       {/* 04 — Popular ideas */}
-      <section className="bg-paper-soft py-24 md:py-32">
+      <section className="bg-surface-soft py-24 md:py-32">
         <Container>
           <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <SectionIntro
@@ -149,16 +149,16 @@ export default function StudentProjectsPage() {
             {projectIdeas.map((idea, i) => (
               <li
                 key={idea.name}
-                className="card-light group flex items-center justify-between gap-4 rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:border-electric/30"
+                className="card-light group flex items-center justify-between gap-4 rounded-2xl p-6 transition-all hover:-translate-y-0.5 hover:border-brand-bright/30"
               >
                 <div className="flex items-center gap-4">
                   <span className="text-gradient-ink text-3xl font-bold">0{i + 1}</span>
                   <div>
                     <p className="text-lg font-semibold text-ink">{idea.name}</p>
-                    <p className="text-xs uppercase tracking-wider text-royal">{idea.tag}</p>
+                    <p className="text-xs uppercase tracking-wider text-brand">{idea.tag}</p>
                   </div>
                 </div>
-                <ArrowUpRight className="size-5 text-ink/30 transition-colors group-hover:text-electric" />
+                <ArrowUpRight className="size-5 text-ink/30 transition-colors group-hover:text-brand-bright" />
               </li>
             ))}
           </ul>
@@ -198,8 +198,8 @@ export default function StudentProjectsPage() {
                     Final year
                   </span>
                 )}
-                <h3 className={`text-2xl font-semibold ${p.featured ? "text-white" : "text-ink"}`}>{p.name}</h3>
-                <p className={`text-[15px] ${p.featured ? "text-white/80" : "text-slate"}`}>{p.description}</p>
+                <h3 className={`text-2xl font-semibold ${p.featured ? "text-white" : "text-heading"}`}>{p.name}</h3>
+                <p className={`text-[15px] ${p.featured ? "text-white/80" : "text-ink-muted"}`}>{p.description}</p>
                 <ul className={`flex flex-col gap-3 border-t pt-6 ${p.featured ? "border-white/15" : "border-ink/10"}`}>
                   {p.points.map((pt) => (
                     <li key={pt} className={`flex items-center gap-3 text-[15px] ${p.featured ? "text-white" : "text-ink"}`}>

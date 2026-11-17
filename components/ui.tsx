@@ -6,10 +6,11 @@ import type { ReactNode } from "react";
 export type Tone = "dark" | "light";
 
 const buttonStyles = {
-  primary: "bg-primary text-white glow-primary hover:brightness-110",
-  light: "bg-glow text-deep hover:bg-white",
-  ghost: "glass text-white hover:bg-white/12",
-  outline: "border border-ink/15 bg-white/60 text-ink hover:border-electric/50 hover:text-royal",
+  primary: "btn-primary glow-primary",
+  light: "bg-white text-purple-dark-hover hover:bg-purple-light active:bg-purple-light-hover",
+  ghost: "glass text-white hover:bg-white/12 active:bg-white/20",
+  outline:
+    "border border-purple-dark-hover/15 bg-white text-heading hover:border-brand/40 hover:bg-purple-light hover:text-brand active:bg-purple-light-hover",
 };
 
 export function Button({
@@ -43,11 +44,11 @@ export function SectionLabel({ children, tone = "dark" }: { children: ReactNode;
     <span
       className={`inline-flex w-fit items-center gap-2 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-wider ${
         tone === "dark"
-          ? "border-ice/15 bg-electric/10 text-ice"
-          : "border-ink/10 bg-electric/[0.06] text-royal"
+          ? "border-accent-soft/15 bg-brand-bright/10 text-accent-soft"
+          : "border-ink/10 bg-brand-bright/[0.06] text-brand"
       }`}
     >
-      <span className="size-1.5 rounded-full bg-sky shadow-[0_0_10px_2px_rgb(91_140_255/0.7)]" />
+      <span className="size-1.5 rounded-full bg-accent shadow-[0_0_10px_2px_color-mix(in_oklab,var(--color-accent)_70%,transparent)]" />
       {children}
     </span>
   );
@@ -74,7 +75,7 @@ export function SectionIntro({
       <SectionLabel tone={tone}>{label}</SectionLabel>
       <h2
         className={`text-balance text-4xl font-bold leading-[1.08] tracking-tight md:text-[46px] ${
-          tone === "dark" ? "text-white" : "text-ink"
+          tone === "dark" ? "text-white" : "text-heading"
         }`}
       >
         {title}
@@ -82,7 +83,7 @@ export function SectionIntro({
       {description && (
         <p
           className={`max-w-2xl text-pretty text-[17px] leading-relaxed ${
-            tone === "dark" ? "text-soft" : "text-slate"
+            tone === "dark" ? "text-on-dark" : "text-ink-muted"
           }`}
         >
           {description}
@@ -98,7 +99,7 @@ export function Container({ children, className = "" }: { children: ReactNode; c
 
 /** Soft blue light leak used behind dark sections */
 export function Glow({ className = "" }: { className?: string }) {
-  return <div aria-hidden className={`pointer-events-none absolute rounded-full bg-electric/20 blur-[140px] ${className}`} />;
+  return <div aria-hidden className={`pointer-events-none absolute rounded-full bg-brand-bright/20 blur-[140px] ${className}`} />;
 }
 
 export type Project = {
@@ -114,7 +115,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
   return (
     <Link href="/projects" className="group flex flex-col gap-4">
       <div className="bg-signature relative overflow-hidden rounded-3xl p-3 sm:p-4">
-        <div className="relative aspect-[584/390] overflow-hidden rounded-2xl shadow-[0_30px_60px_-30px_rgb(3_8_25/0.8)]">
+        <div className="relative aspect-[584/390] overflow-hidden rounded-2xl shadow-[0_30px_60px_-30px_color-mix(in_oklab,var(--color-surface-dark)_80%,transparent)]">
           <Image
             src={project.image}
             alt={`${project.name} concept preview`}
@@ -131,16 +132,16 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         </span>
       </div>
       <div className="flex items-center justify-between">
-        <p className="text-xs uppercase tracking-wider text-slate">{project.category}</p>
-        <span className="rounded-full border border-ink/10 px-2.5 py-1 text-[10px] uppercase tracking-wider text-royal">
+        <p className="text-xs uppercase tracking-wider text-ink-muted">{project.category}</p>
+        <span className="rounded-full border border-ink/10 px-2.5 py-1 text-[10px] uppercase tracking-wider text-brand">
           Concept
         </span>
       </div>
-      <h3 className="text-2xl font-semibold text-ink transition-colors group-hover:text-royal">{project.name}</h3>
-      <p className="text-base leading-relaxed text-slate">{project.description}</p>
+      <h3 className="text-2xl font-semibold text-heading transition-colors group-hover:text-brand">{project.name}</h3>
+      <p className="text-base leading-relaxed text-ink-muted">{project.description}</p>
       <span className="flex items-center justify-between border-b border-ink/10 pb-4 text-sm font-semibold text-ink">
         View Case Study
-        <ArrowUpRight className="size-4 text-electric transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+        <ArrowUpRight className="size-4 text-brand-bright transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
       </span>
     </Link>
   );

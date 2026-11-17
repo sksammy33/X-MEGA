@@ -5,8 +5,8 @@ import { Button, Container } from "./ui";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-ice/10 bg-night pt-20 text-white">
-      <div className="pointer-events-none absolute -bottom-40 left-1/2 h-[380px] w-[1000px] -translate-x-1/2 rounded-full bg-royal/35 blur-[140px]" />
+    <footer className="relative overflow-hidden border-t border-accent-soft/10 bg-surface-dark-2 pt-20 text-white">
+      <div className="pointer-events-none absolute -bottom-40 left-1/2 h-[380px] w-[1000px] -translate-x-1/2 rounded-full bg-brand/35 blur-[140px]" />
       <Container className="relative">
         <div className="grid gap-14 lg:grid-cols-[1fr_auto] lg:gap-16">
           <div className="flex flex-col items-start gap-7">
@@ -16,8 +16,8 @@ export function Footer() {
             </p>
             <div className="flex flex-wrap items-center gap-6">
               <Button href="/contact">Start Your Project</Button>
-              <Link href="/contact" className="inline-flex items-center gap-2 text-sm font-semibold hover:text-ice">
-                Let&apos;s Talk <ArrowUpRight className="size-4 text-sky" />
+              <Link href="/contact" className="inline-flex items-center gap-2 text-sm font-semibold hover:text-accent-soft">
+                Let&apos;s Talk <ArrowUpRight className="size-4 text-accent" />
               </Link>
             </div>
           </div>
@@ -27,7 +27,7 @@ export function Footer() {
               <div key={col.title} className="flex flex-col gap-4">
                 <p className="text-[15px] font-semibold">{col.title}</p>
                 {col.links.map((l) => (
-                  <Link key={l.href} href={l.href} className="text-[13px] text-soft hover:text-white">
+                  <Link key={l.href} href={l.href} className="text-[13px] text-on-dark hover:text-white">
                     {l.label}
                   </Link>
                 ))}
@@ -43,7 +43,7 @@ export function Footer() {
           XMEGA
         </p>
 
-        <div className="flex flex-col justify-between gap-3 border-t border-ice/10 py-7 text-xs text-muted sm:flex-row">
+        <div className="flex flex-col justify-between gap-3 border-t border-accent-soft/10 py-7 text-xs text-on-dark-muted sm:flex-row">
           <span>XMEGA · Digital experiences, built around you.</span>
           <span>Ideas. Design. Technology.</span>
         </div>

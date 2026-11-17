@@ -5,10 +5,10 @@ import { Container, SectionLabel } from "./ui";
 
 export function Expertise() {
   return (
-    <section className="relative overflow-hidden bg-night">
+    <section className="relative overflow-hidden bg-surface-dark-2">
       <div className="relative">
         <Image src="/images/expertise.png" alt="" fill sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(10_20_48/0.55)_0%,rgb(10_20_48/0.3)_40%,#0a1430_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-surface-dark-2)_55%,transparent)_0%,color-mix(in_oklab,var(--color-surface-dark-2)_30%,transparent)_40%,#0a1430_100%)]" />
 
         <Container className="relative py-24 md:py-36">
           <h2 className="max-w-[620px] text-balance text-4xl font-bold leading-[1.08] tracking-tight text-white md:text-[46px]">
@@ -28,10 +28,10 @@ export function Expertise() {
 
       {/* Politian split testimonial card */}
       <Container className="relative pb-24 md:pb-32">
-        <figure className="surface grid overflow-hidden rounded-3xl md:grid-cols-[300px_1fr]">
+        <figure className="card-dark grid overflow-hidden rounded-3xl md:grid-cols-[300px_1fr]">
           <div className="relative min-h-[260px]">
             <Image src="/images/business.jpg" alt="" fill sizes="300px" className="object-cover" />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(21_41_106/0.2)_0%,rgb(10_19_48/0.9)_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-surface-dark-4)_20%,transparent)_0%,color-mix(in_oklab,var(--color-surface-dark-2)_90%,transparent)_100%)]" />
             <Quote className="absolute right-6 top-6 size-14 text-white/25" />
             <div className="absolute bottom-6 left-6 flex items-center gap-4">
               <Image
@@ -39,11 +39,11 @@ export function Expertise() {
                 alt="Helena Vaughn"
                 width={56}
                 height={56}
-                className="size-14 rounded-full object-cover ring-2 ring-sky/60"
+                className="size-14 rounded-full object-cover ring-2 ring-accent/60"
               />
               <div>
                 <p className="font-semibold text-white">Helena Vaughn</p>
-                <p className="text-sm text-soft">CEO, Northbeam Industries</p>
+                <p className="text-sm text-on-dark">CEO, Northbeam Industries</p>
               </div>
             </div>
           </div>

@@ -45,8 +45,8 @@ export default function LocalBusinessPage() {
             {businessTypes.map(({ name, description, icon: Icon, image }) => (
               <article key={name} className="group relative flex min-h-[380px] flex-col justify-end overflow-hidden rounded-3xl p-6 text-white">
                 <Image src={image} alt="" fill sizes="(min-width: 1024px) 290px, 50vw" className="object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(7_13_34/0.05)_25%,rgb(10_20_48/0.92)_100%)]" />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_30%,rgb(27_70_201/0.55)_100%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-surface-dark)_5%,transparent)_25%,color-mix(in_oklab,var(--color-surface-dark-2)_92%,transparent)_100%)]" />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_30%,color-mix(in_oklab,var(--color-brand)_55%,transparent)_100%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                 <span className="glass absolute left-6 top-6 grid size-11 place-items-center rounded-2xl">
                   <Icon className="size-5" />
                 </span>
@@ -61,12 +61,12 @@ export default function LocalBusinessPage() {
       </section>
 
       {/* 03 — Services for local businesses */}
-      <section className="bg-paper-soft py-24 md:py-32">
+      <section className="bg-surface-soft py-24 md:py-32">
         <Container className="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] sm:aspect-[4/3] lg:aspect-[4/5]">
             <Image src="/images/lb-retail.jpg" alt="A shop owner using a digital billing system" fill sizes="(min-width: 1024px) 540px, 100vw" className="object-cover" />
             <div className="bg-signature absolute bottom-5 left-5 right-5 rounded-2xl p-5 text-white">
-              <p className="text-sm text-ice">From counter to customer</p>
+              <p className="text-sm text-accent-soft">From counter to customer</p>
               <p className="mt-1 text-lg font-semibold">Tools that fit everyday business — not the other way around.</p>
             </div>
           </div>
@@ -114,25 +114,25 @@ export default function LocalBusinessPage() {
               <article
                 key={title}
                 className={`flex min-h-[220px] flex-col justify-between rounded-3xl p-7 ${
-                  i === 0 ? "bg-signature text-white" : "border border-ink/10 bg-paper"
+                  i === 0 ? "bg-signature text-white" : "border border-ink/10 bg-surface"
                 }`}
               >
-                <Icon className={`size-6 ${i === 0 ? "text-ice" : "text-electric"}`} />
+                <Icon className={`size-6 ${i === 0 ? "text-accent-soft" : "text-brand-bright"}`} />
                 <div>
-                  <h3 className={`text-xl font-semibold ${i === 0 ? "text-white" : "text-ink"}`}>{title}</h3>
-                  <p className={`mt-2 text-[15px] ${i === 0 ? "text-white/80" : "text-slate"}`}>{description}</p>
+                  <h3 className={`text-xl font-semibold ${i === 0 ? "text-white" : "text-heading"}`}>{title}</h3>
+                  <p className={`mt-2 text-[15px] ${i === 0 ? "text-white/80" : "text-ink-muted"}`}>{description}</p>
                 </div>
               </article>
             ))}
           </div>
 
           {/* Replace with real local business examples (before/after or product screenshots) */}
-          <div className="mt-16 flex flex-col items-center gap-5 rounded-3xl border-2 border-dashed border-ink/15 bg-paper px-6 py-14 text-center">
-            <span className="grid size-12 place-items-center rounded-2xl bg-glow text-royal">
+          <div className="mt-16 flex flex-col items-center gap-5 rounded-3xl border-2 border-dashed border-ink/15 bg-surface px-6 py-14 text-center">
+            <span className="grid size-12 place-items-center rounded-2xl bg-accent-faint text-brand">
               <Store className="size-5" />
             </span>
             <p className="text-2xl font-semibold text-ink">Local business projects</p>
-            <p className="max-w-md text-slate">
+            <p className="max-w-md text-ink-muted">
               Real examples from local businesses we&apos;ve worked with will be shared here once approved.
             </p>
             <Button href="/projects">See Our Work</Button>

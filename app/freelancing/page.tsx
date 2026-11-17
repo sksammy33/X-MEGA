@@ -44,17 +44,17 @@ export default function FreelancingPage() {
             {freelanceServices.map(({ name, description, icon: Icon }, i) => (
               <article
                 key={name}
-                className="group flex flex-col gap-6 rounded-3xl border border-ink/10 bg-paper p-7 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_24px_50px_-28px_rgb(27_70_201/0.45)]"
+                className="group flex flex-col gap-6 rounded-3xl border border-ink/10 bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_24px_50px_-28px_color-mix(in_oklab,var(--color-brand)_45%,transparent)]"
               >
                 <div className="flex items-start justify-between">
-                  <span className="grid size-12 place-items-center rounded-2xl bg-glow text-royal transition-all group-hover:bg-primary group-hover:text-white">
+                  <span className="grid size-12 place-items-center rounded-2xl bg-accent-faint text-brand transition-all group-hover:bg-primary group-hover:text-white">
                     <Icon className="size-5" />
                   </span>
-                  <span className="text-xs text-slate">0{i + 1}</span>
+                  <span className="text-xs text-ink-muted">0{i + 1}</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-ink md:text-[23px]">{name}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-slate">{description}</p>
+                  <h3 className="text-xl font-semibold text-heading md:text-[23px]">{name}</h3>
+                  <p className="mt-2 text-[15px] leading-relaxed text-ink-muted">{description}</p>
                 </div>
               </article>
             ))}
@@ -63,13 +63,13 @@ export default function FreelancingPage() {
       </section>
 
       {/* Who it's for — sticky intro with image, list on the right */}
-      <section className="bg-paper-soft py-24 md:py-32">
+      <section className="bg-surface-soft py-24 md:py-32">
         <Container className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div className="flex flex-col gap-8 lg:sticky lg:top-28 lg:self-start">
             <SectionIntro label="Who it's for" title="Flexible Solutions for Different Needs." tone="light" />
             <div className="relative aspect-[16/10] overflow-hidden rounded-3xl">
               <Image src="/images/team-desk.jpg" alt="A small team collaborating at a shared desk" fill sizes="(min-width: 1024px) 560px, 100vw" className="object-cover" />
-              <div className="absolute inset-0 bg-[linear-gradient(160deg,transparent_40%,rgb(21_41_106/0.7)_100%)]" />
+              <div className="absolute inset-0 bg-[linear-gradient(160deg,transparent_40%,color-mix(in_oklab,var(--color-surface-dark-4)_70%,transparent)_100%)]" />
             </div>
           </div>
           <ul className="flex flex-col">
@@ -79,8 +79,8 @@ export default function FreelancingPage() {
                   <Icon className="size-5" />
                 </span>
                 <div>
-                  <h3 className="text-2xl font-medium text-ink transition-colors group-hover:text-royal">{name}</h3>
-                  <p className="mt-1.5 text-[16px] text-slate">{description}</p>
+                  <h3 className="text-2xl font-medium text-heading transition-colors group-hover:text-brand">{name}</h3>
+                  <p className="mt-1.5 text-[16px] text-ink-muted">{description}</p>
                 </div>
               </li>
             ))}
@@ -92,7 +92,7 @@ export default function FreelancingPage() {
       <section className="relative overflow-hidden">
         <Image src="/images/circuit.jpg" alt="" fill sizes="100vw" className="object-cover" />
         <div className="tint-brand absolute inset-0" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(7_13_34/0.92)_0%,rgb(10_20_48/0.8)_55%,#070d22_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-surface-dark)_92%,transparent)_0%,color-mix(in_oklab,var(--color-surface-dark-2)_80%,transparent)_55%,#070d22_100%)]" />
         <Container className="relative py-24 md:py-32">
           <SectionLabel>Why work with XMEGA</SectionLabel>
           <h2 className="mt-5 max-w-[640px] text-balance text-4xl font-bold leading-[1.08] tracking-tight text-white md:text-[52px]">
@@ -101,10 +101,10 @@ export default function FreelancingPage() {
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {principles.map(({ title, description, icon: Icon }) => (
               <div key={title} className="glass flex min-h-[220px] flex-col justify-between rounded-3xl p-7">
-                <Icon className="size-6 text-sky" />
+                <Icon className="size-6 text-accent" />
                 <div>
                   <h3 className="text-xl font-medium text-white">{title}</h3>
-                  <p className="mt-2 text-[15px] text-soft">{description}</p>
+                  <p className="mt-2 text-[15px] text-on-dark">{description}</p>
                 </div>
               </div>
             ))}

@@ -26,16 +26,16 @@ export default function ContactPage() {
   return (
     <main>
       {/* 01 + 02 + 03 — Hero, contact information and enquiry form */}
-      <section id="enquire" className="bg-paper-soft pb-24 pt-36 md:pb-32 md:pt-44">
+      <section id="enquire" className="bg-surface-soft pb-24 pt-36 md:pb-32 md:pt-44">
         <Container>
-          <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.16em] text-slate">
-            <span className="text-royal">01 — Contact</span>
+          <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.16em] text-ink-muted">
+            <span className="text-brand">01 — Contact</span>
             <span className="hidden sm:inline">Ideas. Design. Technology.</span>
           </div>
-          <h1 className="mt-8 max-w-[980px] text-balance text-5xl font-bold leading-[1.02] tracking-tight text-ink sm:text-7xl lg:text-[96px]">
+          <h1 className="mt-8 max-w-[980px] text-balance text-5xl font-bold leading-[1.02] tracking-tight text-heading sm:text-7xl lg:text-[96px]">
             Let&apos;s Talk About <span className="text-gradient-ink">Your Idea.</span>
           </h1>
-          <p className="mt-8 max-w-[600px] text-lg leading-relaxed text-slate md:text-[19px]">
+          <p className="mt-8 max-w-[600px] text-lg leading-relaxed text-ink-muted md:text-[19px]">
             Tell us what you&apos;re planning, what challenge you&apos;re facing and how we can help.
           </p>
 
@@ -53,7 +53,7 @@ export default function ContactPage() {
                         <Icon className="size-5" />
                       </span>
                       <span className="min-w-0">
-                        <span className="block text-xs uppercase tracking-[0.14em] text-ice">{label}</span>
+                        <span className="block text-xs uppercase tracking-[0.14em] text-accent-soft">{label}</span>
                         <span className="block truncate text-[15px] font-medium">{value}</span>
                       </span>
                     </>
@@ -77,9 +77,9 @@ export default function ContactPage() {
               </p>
             </aside>
 
-            <div className="card-light rounded-[28px] p-6 shadow-[0_40px_80px_-50px_rgb(27_70_201/0.5)] md:p-10">
+            <div className="card-light rounded-[28px] p-6 shadow-[0_40px_80px_-50px_color-mix(in_oklab,var(--color-brand)_50%,transparent)] md:p-10">
               <p className="text-2xl font-semibold text-ink">Send an enquiry</p>
-              <p className="mb-8 mt-2 text-slate">Fields marked * are required.</p>
+              <p className="mb-8 mt-2 text-ink-muted">Fields marked * are required.</p>
               <EnquiryForm fields={contactFields} subject="New enquiry — XMEGA website" submitLabel="Send Enquiry" />
             </div>
           </div>

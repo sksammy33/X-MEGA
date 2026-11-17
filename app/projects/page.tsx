@@ -35,31 +35,31 @@ export default function ProjectsPage() {
       {/* How we solve problems — case-study framework over atmospheric texture */}
       <section className="relative overflow-hidden">
         <Image src="/images/expertise.png" alt="" fill sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(7_13_34/0.85)_0%,rgb(10_20_48/0.65)_50%,#0a1430_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-surface-dark)_85%,transparent)_0%,color-mix(in_oklab,var(--color-surface-dark-2)_65%,transparent)_50%,#0a1430_100%)]" />
         <Container className="relative py-24 md:py-32">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <SectionIntro label="How we solve problems" title="Beyond the Final Screen." />
-            <p className="max-w-[260px] text-soft">The questions behind a thoughtful digital experience.</p>
+            <p className="max-w-[260px] text-on-dark">The questions behind a thoughtful digital experience.</p>
           </div>
           <ol className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {caseFramework.map((c, i) => (
               <li key={c.title} className="glass flex min-h-[200px] flex-col justify-between rounded-3xl p-7">
-                <span className="text-sm font-semibold text-sky">0{i + 1}</span>
+                <span className="text-sm font-semibold text-accent">0{i + 1}</span>
                 <div>
                   <h3 className="text-2xl font-medium text-white">{c.title}</h3>
-                  <p className="mt-2 text-[15px] text-soft">{c.description}</p>
+                  <p className="mt-2 text-[15px] text-on-dark">{c.description}</p>
                 </div>
               </li>
             ))}
           </ol>
-          <p className="mt-10 text-xs text-muted">
+          <p className="mt-10 text-xs text-on-dark-muted">
             A framework for future case studies. Verified project details and measured outcomes have not yet been supplied.
           </p>
         </Container>
       </section>
 
       {/* Clients & collaborations — Politian split card */}
-      <section className="bg-paper-soft py-24 md:py-32">
+      <section className="bg-surface-soft py-24 md:py-32">
         <Container>
           <div className="grid gap-8 lg:grid-cols-[1fr_440px] lg:items-end">
             <SectionIntro
@@ -71,7 +71,7 @@ export default function ProjectsPage() {
                 </>
               }
             />
-            <p className="text-[17px] leading-relaxed text-slate">
+            <p className="text-[17px] leading-relaxed text-ink-muted">
               Good work starts with a shared ambition. Bring your business challenge, student project or next product
               idea. Let&apos;s find the right way forward, together.
             </p>
@@ -89,10 +89,10 @@ export default function ProjectsPage() {
             </div>
             <div className="flex flex-col justify-center gap-4 p-8 md:p-12">
               <div className="flex items-start justify-between gap-6">
-                <h3 className="text-2xl font-medium text-ink md:text-[28px]">A space for our next shared story.</h3>
-                <ArrowUpRight className="size-6 shrink-0 text-electric" />
+                <h3 className="text-2xl font-medium text-heading md:text-[28px]">A space for our next shared story.</h3>
+                <ArrowUpRight className="size-6 shrink-0 text-brand-bright" />
               </div>
-              <p className="max-w-lg text-[15px] leading-relaxed text-slate">
+              <p className="max-w-lg text-[15px] leading-relaxed text-ink-muted">
                 Selected client engagements, genuine testimonials and project partnerships will appear here once
                 approved for sharing.
               </p>

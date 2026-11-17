@@ -23,7 +23,7 @@ export function Process({
   const [active, setActive] = useState(0);
 
   return (
-    <section className="relative overflow-hidden bg-base py-24 md:py-32">
+    <section className="relative overflow-hidden bg-surface-dark py-24 md:py-32">
       <Glow className="-left-40 bottom-0 size-[520px]" />
       <Container className="relative">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
@@ -44,20 +44,20 @@ export function Process({
                   onClick={() => setActive(i)}
                   className={`flex h-full min-h-[280px] w-full flex-col justify-between rounded-3xl p-7 text-left transition-all duration-500 ${
                     on
-                      ? "bg-signature text-white shadow-[0_30px_60px_-30px_rgb(47_107_255/0.8)] ring-1 ring-ice/20"
-                      : "surface text-white hover:bg-navy/60"
+                      ? "bg-signature text-white shadow-[0_30px_60px_-30px_color-mix(in_oklab,var(--color-brand-bright)_80%,transparent)] ring-1 ring-accent-soft/20"
+                      : "card-dark text-white hover:bg-surface-dark-3/60"
                   }`}
                 >
                   <span
                     className={`font-semibold ${numbering === "dotted" ? "text-5xl" : "text-sm"} ${
-                      on ? "text-ice" : "text-white/35"
+                      on ? "text-accent-soft" : "text-white/35"
                     }`}
                   >
                     {numbering === "dotted" ? `${i + 1}.` : `0${i + 1}`}
                   </span>
                   <span className="flex flex-col gap-3">
                     <span className="text-2xl font-semibold">{s.title}</span>
-                    <span className={`text-[15px] leading-relaxed ${on ? "text-white/80" : "text-soft"}`}>
+                    <span className={`text-[15px] leading-relaxed ${on ? "text-white/80" : "text-on-dark"}`}>
                       {s.description}
                     </span>
                   </span>

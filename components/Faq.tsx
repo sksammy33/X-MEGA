@@ -19,7 +19,7 @@ export function Faq({
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-paper py-24 md:py-32">
+    <section id="faq" className="bg-surface py-24 md:py-32">
       <Container className="grid gap-12 lg:grid-cols-[440px_1fr] lg:gap-20">
         <div className="flex flex-col items-start gap-7 lg:sticky lg:top-28 lg:self-start">
           <SectionIntro label={label} title={title} description={description} tone="light" />
@@ -34,7 +34,7 @@ export function Faq({
                 key={f.q}
                 className={`rounded-2xl border transition-all duration-300 ${
                   isOpen
-                    ? "border-electric/30 bg-white shadow-[0_20px_50px_-30px_rgb(27_70_201/0.5)]"
+                    ? "border-brand-bright/30 bg-white shadow-[0_20px_50px_-30px_color-mix(in_oklab,var(--color-brand)_50%,transparent)]"
                     : "border-ink/10 bg-white/60 hover:bg-white"
                 }`}
               >
@@ -44,7 +44,7 @@ export function Faq({
                   className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left"
                 >
                   <span className="flex items-center gap-4">
-                    <span className="text-xs text-slate">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="text-xs text-ink-muted">{String(i + 1).padStart(2, "0")}</span>
                     <span className="text-[15px] font-semibold text-ink md:text-base">{f.q}</span>
                   </span>
                   <span
@@ -61,7 +61,7 @@ export function Faq({
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-6 pl-[3.25rem] text-[15px] leading-relaxed text-slate">{f.a}</p>
+                    <p className="px-6 pb-6 pl-[3.25rem] text-[15px] leading-relaxed text-ink-muted">{f.a}</p>
                   </div>
                 </div>
               </li>
