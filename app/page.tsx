@@ -20,8 +20,8 @@ export default function Home() {
       <Process />
       <Expertise />
       <Students />
-      <CallToAction />
       <Faq />
+      <CallToAction />
     </main>
   );
 }

@@ -19,11 +19,13 @@ export function Faq({
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-surface py-24 md:py-32">
+    <section id="faq" className="bg-surface-dark py-24 md:py-32">
       <Container className="grid gap-12 lg:grid-cols-[440px_1fr] lg:gap-20">
         <div className="flex flex-col items-start gap-7 lg:sticky lg:top-28 lg:self-start">
-          <SectionIntro label={label} title={title} description={description} tone="light" />
-          <Button href="/contact">Let&apos;s Talk</Button>
+          <SectionIntro label={label} title={title} description={description} />
+          <Button href="/contact" variant="light">
+            Let&apos;s Talk
+          </Button>
         </div>
 
         <ul className="flex flex-col gap-3">
@@ -32,10 +34,8 @@ export function Faq({
             return (
               <li
                 key={f.q}
-                className={`rounded-2xl border transition-all duration-300 ${
-                  isOpen
-                    ? "border-brand-bright/30 bg-white shadow-[0_20px_50px_-30px_color-mix(in_oklab,var(--color-brand)_50%,transparent)]"
-                    : "border-ink/10 bg-white/60 hover:bg-white"
+                className={`rounded-2xl border bg-surface-dark-4 transition-all duration-300 ${
+                  isOpen ? "border-accent-soft/25" : "border-transparent hover:border-white/10"
                 }`}
               >
                 <button
@@ -44,12 +44,12 @@ export function Faq({
                   className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left"
                 >
                   <span className="flex items-center gap-4">
-                    <span className="text-xs text-ink-muted">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="text-[15px] font-semibold text-ink md:text-base">{f.q}</span>
+                    <span className="text-xs text-on-dark-muted">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="text-[15px] font-semibold text-white md:text-base">{f.q}</span>
                   </span>
                   <span
                     className={`grid size-8 shrink-0 place-items-center rounded-full transition-colors ${
-                      isOpen ? "bg-primary text-white" : "bg-ink/5 text-ink"
+                      isOpen ? "bg-white text-heading" : "bg-white/10 text-white"
                     }`}
                   >
                     {isOpen ? <Minus className="size-4" /> : <Plus className="size-4" />}
@@ -61,7 +61,7 @@ export function Faq({
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-6 pl-[3.25rem] text-[15px] leading-relaxed text-ink-muted">{f.a}</p>
+                    <p className="px-6 pb-6 pl-[3.25rem] text-[15px] leading-relaxed text-on-dark">{f.a}</p>
                   </div>
                 </div>
               </li>

@@ -17,7 +17,7 @@ export default function AboutPage() {
   return (
     <main>
       {/* 01 — Hero: Connect-style centred headline over a wide rounded image, Politian chips */}
-      <section className="bg-surface-soft relative overflow-hidden pb-20 pt-36 md:pt-44">
+      <section className="bg-wash relative overflow-hidden pb-20 pt-36 md:pt-44">
         <Container className="flex flex-col items-center gap-7 text-center">
           <SectionLabel tone="light">About XMEGA</SectionLabel>
           <h1 className="max-w-[980px] text-balance text-5xl font-bold leading-[1.04] tracking-tight text-heading md:text-[80px]">
@@ -288,7 +288,7 @@ export default function AboutPage() {
       <CallToAction
         title={
           <>
-            Have an Idea? <span className="text-gradient">Let&apos;s Bring It to Life.</span>
+            Have an Idea? <span className="text-gradient-ink">Let&apos;s Bring It to Life.</span>
           </>
         }
         description="Whether you're starting a business, planning an application or exploring a new digital solution, XMEGA can discuss your requirements and possible next steps."

@@ -35,7 +35,7 @@ export default function ProjectsPage() {
       {/* How we solve problems — case-study framework over atmospheric texture */}
       <section className="relative overflow-hidden">
         <Image src="/images/expertise.png" alt="" fill sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-surface-dark)_85%,transparent)_0%,color-mix(in_oklab,var(--color-surface-dark-2)_65%,transparent)_50%,#0a1430_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-surface-dark)_85%,transparent)_0%,color-mix(in_oklab,var(--color-surface-dark-2)_65%,transparent)_50%,var(--color-surface-dark-2)_100%)]" />
         <Container className="relative py-24 md:py-32">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <SectionIntro label="How we solve problems" title="Beyond the Final Screen." />
@@ -110,7 +110,7 @@ export default function ProjectsPage() {
         eyebrow="06 — Your next chapter"
         title={
           <>
-            Have a Project <span className="text-gradient">in Mind?</span>
+            Have a Project <span className="text-gradient-ink">in Mind?</span>
           </>
         }
         description="Your next idea could be our next collaboration. Let's discuss."

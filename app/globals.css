@@ -104,10 +104,10 @@
   --color-ink: var(--color-neutral-ink); /* body text on light */
   --color-ink-muted: var(--color-mauve-dark); /* secondary text on light (AA) */
 
-  /* Dark sections (deep purple, never pure black) */
-  --color-surface-dark: var(--color-purple-darker);
-  --color-surface-dark-2: var(--color-purple-dark-active);
-  --color-surface-dark-3: var(--color-purple-dark-hover);
+  /* Dark sections: Fluxpay's flat deep purple, with #421061 for cards on it */
+  --color-surface-dark: var(--color-purple-dark-hover);
+  --color-surface-dark-2: var(--color-purple-dark-hover);
+  --color-surface-dark-3: var(--color-purple-dark);
   --color-surface-dark-4: var(--color-purple-dark);
   --color-on-dark: var(--color-mauve-light-active); /* body text on dark */
   --color-on-dark-muted: var(--color-mauve-normal); /* secondary text on dark */
@@ -144,63 +144,51 @@
   --gradient-primary: linear-gradient(270deg, var(--color-purple-normal) 0%, var(--color-purple-dark-hover) 100%);
   --gradient-primary-hover: linear-gradient(270deg, var(--color-purple-normal-hover) 0%, var(--color-purple-dark-active) 100%);
   --gradient-primary-active: linear-gradient(270deg, var(--color-purple-dark) 0%, var(--color-purple-darker) 100%);
-  --gradient-signature:
-    radial-gradient(85% 75% at 92% 105%,
-      color-mix(in oklab, var(--color-lilac-normal) 60%, transparent) 0%,
-      color-mix(in oklab, var(--color-purple-normal) 55%, transparent) 32%,
-      transparent 62%),
-    linear-gradient(160deg, var(--color-purple-darker) 0%, var(--color-purple-dark-hover) 45%, var(--color-purple-normal) 100%);
+  /* Featured cards: same flat purple gradient as the primary button */
+  --gradient-signature: linear-gradient(270deg, var(--color-purple-normal) 0%, var(--color-purple-dark-hover) 100%);
   --gradient-text-dark: linear-gradient(
     100deg,
     var(--color-white) 0%,
     var(--color-purple-light-active) 55%,
     var(--color-lilac-normal) 100%
   );
-  --gradient-text-light: linear-gradient(
-    100deg,
-    var(--color-purple-dark-hover) 0%,
-    var(--color-purple-normal) 100%
-  );
-  /* Fluxpay's lilac-to-white wash */
-  --gradient-wash: linear-gradient(180deg, var(--color-purple-light-active) 0%, var(--color-neutral-light) 66%);
-  --shadow-glow-primary:
-    0 18px 40px -16px color-mix(in oklab, var(--color-purple-normal) 55%, transparent),
-    inset 0 1px 0 rgb(255 255 255 / 0.2);
+  /* Accent words in light headings: Fluxpay's two-tone heading (purple + mauve) */
+  --gradient-text-light: linear-gradient(100deg, var(--color-mauve-dark) 0%, var(--color-mauve-dark) 100%);
+  /* Fluxpay's lilac-to-white wash (hero and one feature band) */
+  --gradient-wash: linear-gradient(180deg, var(--color-purple-light-active) 0%, var(--color-neutral-light) 50%);
+  /* Fluxpay is flat: only a soft lift under primary buttons */
+  --shadow-glow-primary: 0 10px 24px -14px color-mix(in oklab, var(--color-purple-normal) 45%, transparent);
 }
 
 @layer utilities {
   .font-display {
     font-family: var(--font-display);
   }
-  /* Primary surface: deep purple with a lilac glow */
+  /* Featured card / stage: flat purple gradient */
   .bg-signature {
     background: var(--gradient-signature);
   }
-  /* Ambient dark section with soft purple + lilac light leaks */
+  /* Dark section: flat Fluxpay purple */
   .bg-ambient {
-    background:
-      radial-gradient(60% 70% at 100% 0%, color-mix(in oklab, var(--color-purple-normal) 22%, transparent) 0%, transparent 60%),
-      radial-gradient(50% 60% at 0% 100%, color-mix(in oklab, var(--color-lilac-normal) 8%, transparent) 0%, transparent 60%),
-      var(--color-surface-dark-2);
+    background: var(--color-surface-dark);
   }
-  /* Light section with a gentle lilac + pink wash */
+  /* Light section: flat page white */
   .bg-surface-soft {
-    background:
-      radial-gradient(80% 120% at 100% 0%, color-mix(in oklab, var(--color-purple-light-active) 45%, transparent) 0%, transparent 55%),
-      radial-gradient(60% 90% at 0% 100%, color-mix(in oklab, var(--color-blush) 60%, transparent) 0%, transparent 55%),
-      var(--color-surface);
+    background: var(--color-surface);
   }
+  /* Hero / feature band: Fluxpay lilac-to-white wash */
+  .bg-wash {
+    background: var(--gradient-wash);
+  }
+  /* Cards on light sections: Fluxpay flat grey, no border */
   .card-light {
-    background: var(--color-white);
-    border: 1px solid color-mix(in oklab, var(--color-heading) 9%, transparent);
+    background: var(--color-neutral-light-active);
+    border: 1px solid transparent;
   }
+  /* Cards on dark sections: Fluxpay #421061 */
   .card-dark {
-    background: linear-gradient(
-      180deg,
-      color-mix(in oklab, var(--color-surface-dark-4) 35%, transparent) 0%,
-      color-mix(in oklab, var(--color-surface-dark-3) 25%, transparent) 100%
-    );
-    border: 1px solid color-mix(in oklab, var(--color-accent-soft) 10%, transparent);
+    background: var(--color-surface-dark-4);
+    border: 1px solid rgb(255 255 255 / 0.06);
   }
   .bg-primary {
     background: var(--gradient-primary);

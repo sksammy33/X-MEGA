@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { ReactNode } from "react";
 import { Button, Container } from "./ui";
 
@@ -7,7 +6,7 @@ export function CallToAction({
   eyebrow,
   title = (
     <>
-      Let&apos;s build your next <span className="text-gradient">digital experience.</span>
+      Let&apos;s build your next <span className="text-gradient-ink">digital experience.</span>
     </>
   ),
   description = "Have an idea, a challenge or a project in mind? Start a conversation with XMEGA and explore what's possible.",
@@ -25,22 +24,18 @@ export function CallToAction({
   secondary?: { label: string; href: string };
 }) {
   return (
-    <section id={id} className="bg-surface py-10 md:py-16">
+    <section id={id} className="bg-white py-10 md:py-16">
       <Container>
-        <div className="relative overflow-hidden rounded-[32px] bg-surface-dark-3">
-          <Image src="/images/wave.jpg" alt="" fill sizes="1200px" className="object-cover" />
-          <div className="tint-brand absolute inset-0" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_45%,color-mix(in_oklab,var(--color-surface-dark)_35%,transparent)_0%,color-mix(in_oklab,var(--color-surface-dark)_70%,transparent)_60%,color-mix(in_oklab,var(--color-surface-dark)_90%,transparent)_100%)]" />
-          <div className="absolute inset-x-0 bottom-0 h-2/3 bg-[radial-gradient(60%_100%_at_50%_100%,color-mix(in_oklab,var(--color-accent)_50%,transparent)_0%,transparent_70%)]" />
+        <div className="bg-wash relative overflow-hidden rounded-[32px]">
           <div className="relative mx-auto flex max-w-[820px] flex-col items-center gap-7 px-6 py-24 text-center md:py-32">
-            {eyebrow && <span className="text-[11px] uppercase tracking-[0.16em] text-accent-soft">{eyebrow}</span>}
-            <h2 className="text-balance text-4xl font-bold leading-[1.08] tracking-tight text-white md:text-[56px]">
+            {eyebrow && <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-brand">{eyebrow}</span>}
+            <h2 className="text-balance text-4xl font-bold leading-[1.08] tracking-tight text-heading md:text-[56px]">
               {title}
             </h2>
-            <p className="max-w-[600px] text-[17px] leading-relaxed text-on-dark">{description}</p>
+            <p className="max-w-[600px] text-[17px] leading-relaxed text-ink">{description}</p>
             <div className="flex flex-wrap justify-center gap-3">
               <Button href={href}>{cta}</Button>
-              <Button href={secondary.href} variant="ghost" arrow={false}>
+              <Button href={secondary.href} variant="outline" arrow={false}>
                 {secondary.label}
               </Button>
             </div>

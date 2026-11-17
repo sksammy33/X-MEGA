@@ -25,7 +25,7 @@ export function PageHero({
   aside?: ReactNode;
 }) {
   return (
-    <section className="bg-surface-soft relative overflow-hidden">
+    <section className="bg-wash relative overflow-hidden">
       <Container className="relative pb-14 pt-36 md:pb-20 md:pt-44">
         <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.16em] text-ink-muted">
           <span className="text-brand">{index}</span>

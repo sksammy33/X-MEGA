@@ -19,17 +19,17 @@ export function Navbar() {
   }, []);
 
   const linkClass = (active: boolean) =>
-    `relative text-[13px] transition-colors hover:text-white ${active ? "font-semibold text-white" : "text-white/70"}`;
+    `relative text-[13px] transition-colors hover:text-heading ${active ? "font-semibold text-heading" : "text-ink-muted"}`;
   const underline = <span className="bg-primary absolute -bottom-2 left-0 h-0.5 w-full rounded-full" />;
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6">
       <nav
-        className={`mx-auto flex max-w-[1200px] items-center justify-between rounded-full border border-accent-soft/10 bg-surface-dark/85 px-5 py-3 backdrop-blur-xl transition-shadow duration-500 md:px-6 ${
-          scrolled || open ? "shadow-[0_20px_50px_-20px_color-mix(in_oklab,var(--color-surface-dark)_60%,transparent)]" : ""
+        className={`mx-auto flex max-w-[1200px] items-center justify-between rounded-full border border-heading/10 bg-white/85 px-5 py-3 backdrop-blur-xl transition-shadow duration-500 md:px-6 ${
+          scrolled || open ? "shadow-[0_16px_40px_-24px_color-mix(in_oklab,var(--color-heading)_45%,transparent)]" : ""
         }`}
       >
-        <Link href="/" className="text-2xl font-extrabold tracking-tight text-white">
+        <Link href="/" className="font-display text-2xl font-extrabold tracking-tight text-heading">
           XMEGA
         </Link>
 
@@ -50,17 +50,17 @@ export function Navbar() {
                   {item.children.some((c) => c.href === pathname) && underline}
                 </button>
                 <div className="invisible absolute left-1/2 top-full w-72 -translate-x-1/2 pt-5 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-                  <ul className="rounded-2xl border border-accent-soft/10 bg-surface-dark/95 p-2 shadow-[0_30px_60px_-20px_color-mix(in_oklab,var(--color-surface-dark)_80%,transparent)] backdrop-blur-xl">
+                  <ul className="rounded-2xl border border-heading/10 bg-white p-2 shadow-[0_30px_60px_-30px_color-mix(in_oklab,var(--color-heading)_45%,transparent)]">
                     {item.children.map((c) => (
                       <li key={c.href}>
                         <Link
                           href={c.href}
-                          className={`block rounded-xl px-4 py-3 transition-colors hover:bg-brand-bright/10 ${
-                            pathname === c.href ? "bg-brand-bright/10" : ""
+                          className={`block rounded-xl px-4 py-3 transition-colors hover:bg-purple-light ${
+                            pathname === c.href ? "bg-purple-light" : ""
                           }`}
                         >
-                          <span className="block text-sm font-semibold text-white">{c.label}</span>
-                          <span className="block text-xs text-on-dark">{c.description}</span>
+                          <span className="block text-sm font-semibold text-heading">{c.label}</span>
+                          <span className="block text-xs text-ink-muted">{c.description}</span>
                         </Link>
                       </li>
                     ))}
@@ -82,7 +82,7 @@ export function Navbar() {
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="text-white xl:hidden"
+            className="text-heading xl:hidden"
           >
             {open ? <X className="size-6" /> : <Menu className="size-6" />}
           </button>
@@ -90,7 +90,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="mx-auto mt-2 max-h-[calc(100vh-6rem)] max-w-[1200px] overflow-y-auto rounded-3xl border border-accent-soft/10 bg-surface-dark/95 p-6 backdrop-blur-xl xl:hidden">
+        <div className="mx-auto mt-2 max-h-[calc(100vh-6rem)] max-w-[1200px] overflow-y-auto rounded-3xl border border-heading/10 bg-white p-6 shadow-[0_30px_60px_-30px_color-mix(in_oklab,var(--color-heading)_45%,transparent)] xl:hidden">
           <ul className="flex flex-col gap-1">
             {mainNav
               .flatMap((item) => ("href" in item ? [item] : item.children))
@@ -99,8 +99,8 @@ export function Navbar() {
                   <Link
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className={`block rounded-xl px-3 py-3 text-lg hover:bg-white/5 hover:text-white ${
-                      pathname === l.href ? "bg-brand-bright/10 text-white" : "text-white/80"
+                    className={`block rounded-xl px-3 py-3 text-lg hover:bg-purple-light hover:text-heading ${
+                      pathname === l.href ? "bg-purple-light font-semibold text-heading" : "text-ink-muted"
                     }`}
                   >
                     {l.label}
@@ -111,7 +111,7 @@ export function Navbar() {
           <Link
             href="/contact"
             onClick={() => setOpen(false)}
-            className="bg-primary mt-4 flex items-center justify-center gap-2 rounded-full py-3.5 text-sm font-semibold text-white"
+            className="btn-primary mt-4 flex items-center justify-center gap-2 rounded-full py-3.5 text-sm font-semibold"
           >
             Let&apos;s Talk <ArrowUpRight className="size-4" />
           </Link>

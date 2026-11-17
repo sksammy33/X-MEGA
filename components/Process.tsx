@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { steps as defaultSteps, type Step } from "@/lib/content";
-import { Button, Container, Glow, SectionIntro } from "./ui";
+import { Button, Container, SectionIntro } from "./ui";
 
 // Connect "How collaboration works" — the active step lifts into the signature gradient
 export function Process({
@@ -23,11 +23,10 @@ export function Process({
   const [active, setActive] = useState(0);
 
   return (
-    <section className="relative overflow-hidden bg-surface-dark py-24 md:py-32">
-      <Glow className="-left-40 bottom-0 size-[520px]" />
+    <section className="bg-wash relative overflow-hidden py-24 md:py-32">
       <Container className="relative">
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <SectionIntro label={label} title={title} description={description} className="max-w-[640px]" />
+          <SectionIntro tone="light" label={label} title={title} description={description} className="max-w-[640px]" />
           <Button href={cta.href} className="shrink-0 self-start md:self-auto">
             {cta.label}
           </Button>
@@ -44,20 +43,20 @@ export function Process({
                   onClick={() => setActive(i)}
                   className={`flex h-full min-h-[280px] w-full flex-col justify-between rounded-3xl p-7 text-left transition-all duration-500 ${
                     on
-                      ? "bg-signature text-white shadow-[0_30px_60px_-30px_color-mix(in_oklab,var(--color-brand-bright)_80%,transparent)] ring-1 ring-accent-soft/20"
-                      : "card-dark text-white hover:bg-surface-dark-3/60"
+                      ? "bg-signature text-white"
+                      : "bg-white text-heading hover:bg-purple-light"
                   }`}
                 >
                   <span
                     className={`font-semibold ${numbering === "dotted" ? "text-5xl" : "text-sm"} ${
-                      on ? "text-accent-soft" : "text-white/35"
+                      on ? "text-accent-soft" : "text-mauve-normal"
                     }`}
                   >
                     {numbering === "dotted" ? `${i + 1}.` : `0${i + 1}`}
                   </span>
                   <span className="flex flex-col gap-3">
-                    <span className="text-2xl font-semibold">{s.title}</span>
-                    <span className={`text-[15px] leading-relaxed ${on ? "text-white/80" : "text-on-dark"}`}>
+                    <span className="font-display text-2xl font-semibold">{s.title}</span>
+                    <span className={`text-[15px] leading-relaxed ${on ? "text-white/80" : "text-ink-muted"}`}>
                       {s.description}
                     </span>
                   </span>

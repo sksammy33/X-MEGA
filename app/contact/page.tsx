@@ -26,7 +26,7 @@ export default function ContactPage() {
   return (
     <main>
       {/* 01 + 02 + 03 — Hero, contact information and enquiry form */}
-      <section id="enquire" className="bg-surface-soft pb-24 pt-36 md:pb-32 md:pt-44">
+      <section id="enquire" className="bg-wash pb-24 pt-36 md:pb-32 md:pt-44">
         <Container>
           <div className="flex items-center justify-between text-[11px] uppercase tracking-[0.16em] text-ink-muted">
             <span className="text-brand">01 — Contact</span>
@@ -107,7 +107,7 @@ export default function ContactPage() {
       <CallToAction
         title={
           <>
-            Ready When <span className="text-gradient">You Are.</span>
+            Ready When <span className="text-gradient-ink">You Are.</span>
           </>
         }
         description="Submit an enquiry, or reach the team directly on WhatsApp."

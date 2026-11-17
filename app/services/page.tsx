@@ -23,7 +23,7 @@ export default function ServicesPage() {
   return (
     <main>
       {/* Hero — Figma image + text split, with Politian-style overlapping card */}
-      <section className="bg-surface-soft relative overflow-hidden pb-20 pt-36 md:pt-44">
+      <section className="bg-wash relative overflow-hidden pb-20 pt-36 md:pt-44">
         <Container className="relative grid items-center gap-12 lg:grid-cols-[1fr_1.05fr]">
           <div className="relative">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] sm:aspect-[5/5]">
@@ -269,21 +269,21 @@ export default function ServicesPage() {
 
       <Process />
 
-      <CallToAction
-        title={
-          <>
-            Let&apos;s Build Your Next <span className="text-gradient">Big Idea.</span>
-          </>
-        }
-        description="Have a project in mind? Tell us what you're planning, and we'll explore the right solution for your needs."
-        cta="Let's Discuss Your Project"
-      />
-
       <Faq
         label="Frequently asked questions"
         title="Everything You Need to Know."
         description="A few useful starting points for your next digital project. Have something else in mind? Let's talk."
         items={servicesFaqs}
+      />
+
+      <CallToAction
+        title={
+          <>
+            Let&apos;s Build Your Next <span className="text-gradient-ink">Big Idea.</span>
+          </>
+        }
+        description="Have a project in mind? Tell us what you're planning, and we'll explore the right solution for your needs."
+        cta="Let's Discuss Your Project"
       />
     </main>
   );

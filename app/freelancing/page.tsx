@@ -92,7 +92,7 @@ export default function FreelancingPage() {
       <section className="relative overflow-hidden">
         <Image src="/images/circuit.jpg" alt="" fill sizes="100vw" className="object-cover" />
         <div className="tint-brand absolute inset-0" />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-surface-dark)_92%,transparent)_0%,color-mix(in_oklab,var(--color-surface-dark-2)_80%,transparent)_55%,#070d22_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--color-surface-dark)_92%,transparent)_0%,color-mix(in_oklab,var(--color-surface-dark-2)_80%,transparent)_55%,var(--color-surface-dark)_100%)]" />
         <Container className="relative py-24 md:py-32">
           <SectionLabel>Why work with XMEGA</SectionLabel>
           <h2 className="mt-5 max-w-[640px] text-balance text-4xl font-bold leading-[1.08] tracking-tight text-white md:text-[52px]">
@@ -123,7 +123,7 @@ export default function FreelancingPage() {
       <CallToAction
         title={
           <>
-            Ready to start your <span className="text-gradient">next project?</span>
+            Ready to start your <span className="text-gradient-ink">next project?</span>
           </>
         }
         description="Tell us what you need. We'll come back with a clear scope, timeline and price — no obligation."
