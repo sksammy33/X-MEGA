@@ -43,8 +43,7 @@ const states = [
 
 const palettes = [
   { name: "purple", role: "Brand primary: buttons, headings, dark sections" },
-  { name: "violet", role: "Electric accent: links, icons, focus" },
-  { name: "magenta", role: "Warm glow and gradient end" },
+  { name: "lilac", role: "Soft accent: glows, dots, highlights on dark" },
   { name: "mauve", role: "Purple-tinted greys: text on dark, soft borders" },
   { name: "neutral", role: "Clean whites and greys" },
 ];
@@ -54,7 +53,7 @@ const semantic: { token: string; maps: string; use: string }[] = [
   { token: "surface-2", maps: "neutral-light-active", use: "Alternate light band" },
   { token: "heading", maps: "purple-dark-hover", use: "Headings on light" },
   { token: "ink", maps: "neutral-ink", use: "Body text on light" },
-  { token: "ink-muted", maps: "neutral-dark", use: "Secondary text on light" },
+  { token: "ink-muted", maps: "mauve-dark", use: "Secondary text on light" },
   { token: "surface-dark", maps: "purple-darker", use: "Darkest section background" },
   { token: "surface-dark-2", maps: "purple-dark-active", use: "Ambient dark sections" },
   { token: "surface-dark-3", maps: "purple-dark-hover", use: "Raised dark panels" },
@@ -62,11 +61,11 @@ const semantic: { token: string; maps: string; use: string }[] = [
   { token: "on-dark", maps: "mauve-light-active", use: "Body text on dark" },
   { token: "on-dark-muted", maps: "mauve-normal", use: "Secondary text on dark" },
   { token: "brand", maps: "purple-normal", use: "Primary brand colour" },
-  { token: "brand-bright", maps: "violet-normal", use: "Links, icons, focus ring" },
-  { token: "accent", maps: "magenta-normal", use: "Glows and dots" },
+  { token: "brand-bright", maps: "purple-normal", use: "Links, icons, focus ring" },
+  { token: "accent", maps: "lilac-normal", use: "Glows and dots" },
   { token: "accent-soft", maps: "purple-light-active", use: "Labels and lines on dark" },
   { token: "accent-faint", maps: "purple-light-hover", use: "Icon chips on light" },
-  { token: "highlight", maps: "magenta-normal", use: "Warm light leaks" },
+  { token: "highlight", maps: "blush", use: "Warm light leaks" },
 ];
 
 const typeScale = [
@@ -117,7 +116,7 @@ export default function DesignSystemPage() {
         <section className="flex flex-col gap-8">
           <h2 className="text-2xl font-bold text-heading">1. Colour palette</h2>
           <p className="max-w-2xl text-ink-muted">
-            Clean white pages, a deep purple brand, electric violet and magenta accents, and purple-tinted greys. Each
+            The full palette of fluxpay.framer.ai: white pages, a deep purple brand, lilac accents and purple-tinted greys. Each
             colour has the same ten states as Figma colour styles, and the Tailwind classes use the same names, for
             example <code className="text-brand">bg-purple-normal</code> and{" "}
             <code className="text-brand">hover:bg-purple-normal-hover</code>.
@@ -144,7 +143,7 @@ export default function DesignSystemPage() {
             </div>
           ))}
           <p className="text-sm text-ink-muted">
-            Also available: <code className="text-brand">neutral-ink</code> (near-black body text) and{" "}
+            Also available: <code className="text-brand">neutral-ink</code> (Fluxpay body text #2f2c25), <code className="text-brand">blush</code> (Fluxpay pink tint #ffe0fc) and{" "}
             <code className="text-brand">danger</code> / <code className="text-brand">success</code> for form states.
           </p>
         </section>
