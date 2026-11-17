@@ -114,8 +114,13 @@ export type Project = {
 export function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <Link href="/projects" className="group flex flex-col gap-4">
-      <div className="bg-signature relative overflow-hidden rounded-3xl p-3 sm:p-4">
-        <div className="relative aspect-[584/390] overflow-hidden rounded-2xl shadow-[0_30px_60px_-30px_color-mix(in_oklab,var(--color-surface-dark)_80%,transparent)]">
+      {/* No border at rest; on hover the purple frame fades in and the preview eases inward */}
+      <div className="relative overflow-hidden rounded-3xl">
+        <span
+          aria-hidden
+          className="bg-signature absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 group-focus-visible:opacity-100"
+        />
+        <div className="relative aspect-[584/390] overflow-hidden rounded-3xl bg-surface-2 transition-[scale,border-radius] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[0.955] group-hover:rounded-2xl group-focus-visible:scale-[0.955] group-focus-visible:rounded-2xl">
           <Image
             src={project.image}
             alt={`${project.name} concept preview`}
@@ -124,7 +129,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
             className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
           />
         </div>
-        <span className="glass absolute left-6 top-6 rounded-full px-3 py-1 text-[11px] font-semibold text-white">
+        <span className="absolute left-6 top-6 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold text-heading shadow-sm backdrop-blur">
           0{index + 1}
         </span>
         <span className="bg-primary glow-primary absolute bottom-7 right-7 grid size-11 translate-y-2 place-items-center rounded-full text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">

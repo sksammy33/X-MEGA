@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import "./globals.css";
 
 // Body text. Upright only: italics are not part of the XMEGA type system.
@@ -29,8 +30,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${inter.variable} ${jakarta.variable} antialiased`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${jakarta.variable} antialiased`}
+      suppressHydrationWarning
+    >
+      <head>
+        {/* Hide <main> until ScrollReveal has set each element's start state (no flash).
+            Never hides with reduced motion, and always un-hides after 1.5s as a fallback. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var h=document.documentElement;if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;h.classList.add('reveal-pending');setTimeout(function(){h.classList.remove('reveal-pending')},1500)})();`,
+          }}
+        />
+      </head>
       <body className="min-h-full font-sans">
+        <ScrollReveal />
         <Navbar />
         {children}
         <Footer />
