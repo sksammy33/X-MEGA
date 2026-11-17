@@ -233,9 +233,8 @@
 }
 
 /* ---------- Base ---------- */
-html {
-  scroll-behavior: smooth;
-}
+/* Smooth scrolling is done by Lenis (components/SmoothScroll.tsx); a CSS
+   scroll-behavior here would fight it. */
 
 body {
   background: var(--color-surface);
@@ -287,8 +286,33 @@ html.reveal-pending main {
   filter: blur(0);
 }
 
+/* ---------- Card hover (see components/CardTilt.tsx) ---------- */
+.tilt {
+  --tilt-light: color-mix(in oklab, var(--color-purple-normal) 10%, transparent);
+}
+.tilt:is(.card-dark, .bg-signature, .bg-primary, [class*="bg-surface-dark"]) {
+  --tilt-light: rgb(255 255 255 / 0.14);
+}
+.tilt.is-tilting {
+  will-change: transform;
+}
+/* Soft light that follows the cursor */
+.tilt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--tilt-light), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+.tilt.is-tilting::after {
+  opacity: 1;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

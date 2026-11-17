@@ -45,19 +45,47 @@ function collectTargets(root: HTMLElement) {
   return picked;
 }
 
+// React marks DOM nodes it has hydrated with an internal "__reactFiber$…" key.
+// Touching classes before that point causes hydration mismatches, so we wait.
+const isHydrated = (node: Element | null) =>
+  !!node && Object.keys(node).some((k) => k.startsWith("__reactFiber$"));
+
 export function ScrollReveal() {
   const pathname = usePathname();
 
   useLayoutEffect(() => {
     const html = document.documentElement;
-    const main = document.querySelector("main");
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let cleanup: (() => void) | undefined;
+    let frame = 0;
+    let tries = 0;
 
-    if (!main || reduce || !("IntersectionObserver" in window)) {
-      html.classList.remove("reveal-pending");
-      return;
-    }
+    const start = () => {
+      const main = document.querySelector("main");
+      if (!main || reduce || !("IntersectionObserver" in window)) {
+        html.classList.remove("reveal-pending");
+        return;
+      }
+      // Wait (max ~2s) until <main> and its last element are hydrated.
+      if (!(isHydrated(main) && isHydrated(main.lastElementChild)) && tries++ < 120) {
+        frame = requestAnimationFrame(start);
+        return;
+      }
+      cleanup = setup(main, html);
+    };
 
+    start();
+    return () => {
+      cancelAnimationFrame(frame);
+      cleanup?.();
+    };
+  }, [pathname]);
+
+  return null;
+}
+
+function setup(main: HTMLElement, html: HTMLElement) {
+  {
     const targets = collectTargets(main);
     targets.forEach((el) => el.classList.add("reveal"));
     // Hidden state is now on each element, so the page itself can show.
@@ -92,7 +120,5 @@ export function ScrollReveal() {
       io.disconnect();
       targets.forEach(finish);
     };
-  }, [pathname]);
-
-  return null;
+  }
 }

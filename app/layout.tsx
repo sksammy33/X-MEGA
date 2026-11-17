@@ -3,6 +3,8 @@ import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { SmoothScroll } from "@/components/SmoothScroll";
+import { CardTilt } from "@/components/CardTilt";
 import "./globals.css";
 
 // Body text. Upright only: italics are not part of the XMEGA type system.
@@ -45,7 +47,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body className="min-h-full font-sans">
+        <SmoothScroll />
         <ScrollReveal />
+        <CardTilt />
         <Navbar />
         {children}
         <Footer />

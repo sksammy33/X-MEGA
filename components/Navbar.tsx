@@ -90,7 +90,7 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <div className="mx-auto mt-2 max-h-[calc(100vh-6rem)] max-w-[1200px] overflow-y-auto rounded-3xl border border-heading/10 bg-white p-6 shadow-[0_30px_60px_-30px_color-mix(in_oklab,var(--color-heading)_45%,transparent)] xl:hidden">
+        <div data-lenis-prevent className="mx-auto mt-2 max-h-[calc(100vh-6rem)] max-w-[1200px] overflow-y-auto rounded-3xl border border-heading/10 bg-white p-6 shadow-[0_30px_60px_-30px_color-mix(in_oklab,var(--color-heading)_45%,transparent)] xl:hidden">
           <ul className="flex flex-col gap-1">
             {mainNav
               .flatMap((item) => ("href" in item ? [item] : item.children))

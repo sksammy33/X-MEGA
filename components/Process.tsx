@@ -38,13 +38,14 @@ export function Process({
             return (
               <li key={s.title}>
                 <button
+                  data-tilt
                   onMouseEnter={() => setActive(i)}
                   onFocus={() => setActive(i)}
                   onClick={() => setActive(i)}
                   className={`flex h-full min-h-[280px] w-full flex-col justify-between rounded-3xl p-7 text-left transition-all duration-500 ${
                     on
                       ? "bg-signature text-white"
-                      : "bg-white text-heading hover:bg-purple-light"
+                      : "bg-purple-light-hover/60 text-heading ring-1 ring-heading/[0.06] hover:bg-purple-light-hover"
                   }`}
                 >
                   <span

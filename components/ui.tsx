@@ -115,7 +115,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
   return (
     <Link href="/projects" className="group flex flex-col gap-4">
       {/* No border at rest; on hover the purple frame fades in and the preview eases inward */}
-      <div className="relative overflow-hidden rounded-3xl">
+      <div data-tilt className="relative overflow-hidden rounded-3xl">
         <span
           aria-hidden
           className="bg-signature absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100 group-focus-visible:opacity-100"
